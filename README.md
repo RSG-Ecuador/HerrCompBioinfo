@@ -2,11 +2,14 @@
 
 Bienvenido al repositorio de GitHub del proyecto _HerrComp4Bioinfo_. Aquí es donde se desarrollan, revisan y mantienen todos los componentes del proyecto.
 
+<img src="Libro/Contenidos/figuras/logo.png" alt="HerrComp4Bioinfo" style="height: width:800px;"/>
+
 La versión en inglés de este README está disponible [aquí](README_ENGLISH.md).
 
-**Table de contenidos:**
+**Tabla de contenidos:**
 
 - [Sobre el proyecto](#sobre-el-proyecto)
+- [Contenidos](#contenidos)
 - [El equipo](#el-equipo)
 - [¿Cómo contribuir?](#como-contribuir)
 - [Contacto](#contacto)
@@ -19,9 +22,22 @@ Existen algunas iniciativas para ayudar a los entusiastas de la Bioinformática 
 
 Especificamente, hemos identificado **la falta de recursos educativos unificados y de alta calidad para Bioinformática escritos en español**. Aunque hay algunos cursos de Bioinformática que se imparten en español, los precios para asistir a estos eventos pueden ser restrictivos para muchos interesados. En este escenario, desarrollamos _HerrComp4Bioinfo_, **un recurso educativo de código abierto de herramientas computacionales para entusiastas de la Bioinformática escrito en español**. De esta forma, nuestros usuarios pueden desarrollar habilidades importantes para comenzar sus carreras en esta área de investigación, a pesar de las posibles barreras del idioma.
 
-Estamos trabajando de forma abierta porque de esta manera nuestro proyecto puede ser apoyado por la comunidad y podría ayudar a una audiencia más amplia. Presentamos este recurso como un libro electrónico al que puede acceder con este [enlace]().
+Estamos trabajando de forma abierta porque de esta manera nuestro proyecto puede ser apoyado por la comunidad y podría ayudar a una audiencia más amplia. Presentamos este recurso como un libro electrónico al que puede acceder con este [enlace](https://rsg-ecuador.github.io/HerrComp4Bioinfo).
 
-_HerrComp4Bioinfo_ se está desarrollando durante la [Cuarta Cohorte de Open Life Science](https://openlifesci.org/ols-4), una iniciativa para aprender a crear y gestionar proyectos abiertos como este. Este proyecto se basa en los contenidos de un [grupo de estudio](https://github.com/RSG-Ecuador/Grupo-De-Estudio-Linux-Bash) y un [curso](https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador) desarrollado por el Grupo de Estudiantes de Biología Computacional del Ecuador, [RSG Ecuador](https://rsg-ecuador.iscbsc.org/), parte deL [Consejo de Estudiantes de la Sociedad Internacional de Biología Computacional](https://www.iscbsc.org/).
+Este proyecto se basa en los contenidos de un [grupo de estudio](https://github.com/RSG-Ecuador/Grupo-De-Estudio-Linux-Bash) y un [curso](https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador) desarrollado por el Grupo de Estudiantes de Biología Computacional del Ecuador, [RSG Ecuador](https://rsg-ecuador.iscbsc.org/), parte del [Consejo de Estudiantes de la Sociedad Internacional de Biología Computacional](https://www.iscbsc.org/). Además, hemos mejorado la idea del proyecto durante la [Cuarta Cohorte de Open Life Science](https://openlifesci.org/ols-4), una iniciativa para aprender a crear y gestionar proyectos abiertos en Biología.
+
+## Contenidos
+
+1. Introducción a Unix y GNU/Linux
+2. Jupyter Lab
+3. Manejo terminal
+4. Procesamiento de ficheros, regex y pipes
+5. Ejercicios de procesamiento ficheros con enfoque en Bioinformática
+6. Comando Make para instalar programas
+7. SAM Tools: conjunto de programas útiles en Bioinformática
+8. AWK: lenguaje de programación para procesamiento de archivos de texto
+9. Bash como lenguaje de programación
+10. Git y GitHub
 
 ## El equipo
 

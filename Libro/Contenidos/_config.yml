@@ -1,0 +1,61 @@
+#######################################################################################
+# A default configuration that will be loaded for all jupyter books
+# Users are expected to override these values in their own `_config.yml` file.
+# This is also the "master list" of all allowed keys and values.
+
+#######################################################################################
+
+# Book settings (Learn more at https://jupyterbook.org/customize/config.html)
+title: HerrComp4Bioinfo
+author: comunidad HerrComp4Bioinfo
+logo: "./figuras/logo.png"
+copyright: "2021"
+exclude_patterns: [_archivos/*, scripts/*] # Patterns to skip when building the book. Can be glob-style (for example "*skip.ipynb")
+
+#######################################################################################
+# Execution settings (See https://jupyterbook.org/content/execute.html)
+execute:
+  execute_notebooks: auto  # Whether to execute notebooks at build time. Must be one of ("auto", "force", "cache", "off")
+  exclude_patterns: [_archivos/*, scripts/*] # A list of patterns to *skip* in execution (for example a notebook that takes a really long time)
+
+#######################################################################################
+# HTML-specific settings
+html:
+  favicon                   : "./figuras/favicon-32x32.png"  # A path to a favicon image
+  navbar_number_sections    : false  # Add a number to each section in your left navbar
+  home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
+  use_edit_page_button      : true  # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
+  use_repository_button     : true  # Whether to add a link to your repository button
+  use_issues_button         : true  # Whether to add an "open an issue" button
+  use_multitoc_numbering    : false   # Continuous numbering across parts/chapters
+  baseurl                   : "https://rsg-ecuador.github.io/HerrComp4Bioinfo"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
+  extra_navbar              : Visita nuestro <a href="https://github.com/RSG-Ecuador/HerrComp4Bioinfo">repositorio de GitHub</a>
+    <div>Este libro fue desarrollado con <a href="https://jupyterbook.org">Jupyter Book</a></div>
+  comments:
+    hypothesis              : true
+    utterances              : false
+
+#######################################################################################
+# Launch button settings (See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository)
+launch_buttons:
+  notebook_interface        : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
+  binderhub_url             : https://mybinder.org  # The URL of the BinderHub (e.g., https://mybinder.org)
+  jupyterhub_url            : ""  # The URL of the JupyterHub (e.g., https://datahub.berkeley.edu)
+  thebe                     : false  # Add a thebe button to pages (requires the repository to run on Binder)
+
+repository:
+  url                       : https://github.com/RSG-Ecuador/HerrComp4Bioinfo  # The URL to your book's repository
+  path_to_book              : "Libro/Contenidos"  # A path to your book's folder, relative to the repository root.
+  branch                    : source  # Which branch of the repository should be used when creating links
+
+#######################################################################################
+# Advanced and power-user settings
+sphinx:
+  config:
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    language: es
+
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - _bibliography/references.bib
