@@ -2,7 +2,9 @@
 
 Bienvenido al repositorio de GitHub del proyecto _HerrComp4Bioinfo_. Aquí es donde se desarrollan, revisan y mantienen todos los componentes del proyecto.
 
-<img src="Libro/Contenidos/figuras/logo.png" alt="HerrComp4Bioinfo" style="height: width:800px;"/>
+<p class="aligncenter">
+    <img src="Libro/Contenidos/figuras/logo.png" alt="HerrComp4Bioinfo centered" style="height: width:800px;"/>
+</p>
 
 La versión en inglés de este README está disponible [aquí](README_ENGLISH.md).
 
