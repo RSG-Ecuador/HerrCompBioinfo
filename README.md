@@ -2,7 +2,7 @@
 
 Bienvenido al repositorio de GitHub del proyecto _HerrComp4Bioinfo_. Aquí es donde se desarrollan, revisan y mantienen todos los componentes del proyecto.
 
-<p class="aligncenter">
+<p align="aligncenter">
     <img src="Libro/Contenidos/figuras/logo.png" alt="HerrComp4Bioinfo centered" style="height: width:800px;"/>
 </p>
 
