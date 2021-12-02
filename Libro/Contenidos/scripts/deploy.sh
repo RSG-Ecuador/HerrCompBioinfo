@@ -14,9 +14,6 @@ jupyter-book clean ../.
 echo "Building the website with jupyterbook - you have to install this program in your computer"
 jupyter-book build ../.
 
-echo "Copy the nojekyll file to the build folder"
-cp ../.nojekyll ../_build/html/
-
 echo "Adding all the new files in the source branch and make a commit"
 git add -A && git commit -m "Actualizar código fuente de HerrCompBioinfo"
 
@@ -35,6 +32,7 @@ git rm -rf ../../../.
 
 echo "Grabbing the public folder from the source to main branch"
 git checkout source ../_build/html/*
+git checkout source ../.nojekyll
 
 echo "Extracting the files outside the folder and deleting the folder"
 cp -r ../_build/html/* ../../.././
