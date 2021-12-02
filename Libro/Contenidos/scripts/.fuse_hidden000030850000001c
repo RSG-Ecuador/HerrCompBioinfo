@@ -15,7 +15,7 @@ echo "Building the website with jupyterbook - you have to install this program i
 jupyter-book build ../.
 
 echo "Adding all the new files in the source branch and make a commit"
-git add -A && git commit -m "Actualizar código fuente de HerrCompBioinfo"
+git add -A && git commit -m "Upgrade HerrComp4Bioinfo website source"
 
 echo "Pushing the changes to the GitHub repo" 
 git push origin $SOURCE
@@ -38,7 +38,7 @@ cp -r ../_build/html/* ../../.././
 rm -r ../_build/
 
 echo "Adding all the new files in the master branch and make a commit"
-git add -A && git commit -m "Actualizar código compilado en html de HerrCompBioinfo - main"
+git add -A && git commit -m "Upgrade HerrComp4Bioinfo website html - main"
 
 echo "Pushing the changes to the GitHub repo" 
 git push origin main

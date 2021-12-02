@@ -1,9 +1,9 @@
-# _HerrComp4Bioinfo_: un recurso educativo de código abierto de herramientas computacionales para entusiastas de la Bioinformática
+# _HerrCompBioinfo_: un recurso educativo de código abierto de herramientas computacionales para entusiastas de la Bioinformática
 
-Bienvenido al repositorio de GitHub del proyecto _HerrComp4Bioinfo_. Aquí es donde se desarrollan, revisan y mantienen todos los componentes del proyecto.
+Bienvenido al repositorio de GitHub del proyecto _HerrCompBioinfo_. Aquí es donde se desarrollan, revisan y mantienen todos los componentes del proyecto.
 
 <p align="aligncenter">
-    <img src="Libro/Contenidos/figuras/logo.png" alt="HerrComp4Bioinfo centered" style="height: width:800px;"/>
+    <img src="Libro/Contenidos/figuras/logo.png" alt="HerrCompBioinfo centered" style="height: width:800px;"/>
 </p>
 
 La versión en inglés de este README está disponible [aquí](README_ENGLISH.md).
@@ -14,6 +14,7 @@ La versión en inglés de este README está disponible [aquí](README_ENGLISH.md
 - [Contenidos](#contenidos)
 - [El equipo](#el-equipo)
 - [¿Cómo contribuir?](#como-contribuir)
+- [¿Cómo citar este recurso?](#como-citar)
 - [Contacto](#contacto)
 
 ## Sobre el proyecto
@@ -22,7 +23,7 @@ En general, la **Bioinformática** es la aplicación de herramientas computacion
 
 Existen algunas iniciativas para ayudar a los entusiastas de la Bioinformática a aprender las habilidades computacionales fundamentales para trabajar en esta disciplina. Algunos ejemplos de recursos abiertos y en línea con este fin son [Rosalind](http://rosalind.info/about/), [Software Carpentry](https://software-carpentry.org/lessons/), entre otros. Sin embargo, la mayoría de estos recursos educacionales están escritos en inglés, por lo que para muchas personas cuya lengua nativa no es el inglés podría ser difícil aprovechar estos materiales.
 
-Especificamente, hemos identificado **la falta de recursos educativos unificados y de alta calidad para Bioinformática escritos en español**. Aunque hay algunos cursos de Bioinformática que se imparten en español, los precios para asistir a estos eventos pueden ser restrictivos para muchos interesados. En este escenario, desarrollamos _HerrComp4Bioinfo_, **un recurso educativo de código abierto de herramientas computacionales para entusiastas de la Bioinformática escrito en español**. De esta forma, nuestros usuarios pueden desarrollar habilidades importantes para comenzar sus carreras en esta área de investigación, a pesar de las posibles barreras del idioma.
+Especificamente, hemos identificado **la falta de recursos educativos unificados y de alta calidad para Bioinformática escritos en español**. Aunque hay algunos cursos de Bioinformática que se imparten en español, los precios para asistir a estos eventos pueden ser restrictivos para muchos interesados. En este escenario, desarrollamos _HerrCompBioinfo_, **un recurso educativo de código abierto de herramientas computacionales para entusiastas de la Bioinformática escrito en español**. De esta forma, nuestros usuarios pueden desarrollar habilidades importantes para comenzar sus carreras en esta área de investigación, a pesar de las posibles barreras del idioma.
 
 Estamos trabajando de forma abierta porque de esta manera nuestro proyecto puede ser apoyado por la comunidad y podría ayudar a una audiencia más amplia. Presentamos este recurso como un libro electrónico al que puede acceder con este [enlace](https://rsg-ecuador.github.io/HerrComp4Bioinfo).
 
@@ -43,13 +44,21 @@ Este proyecto se basa en los contenidos de un [grupo de estudio](https://github.
 
 ## El equipo
 
-Los fundadores de _HerrComp4Bioinfo_ son [Sebastián Ayala Ruano](https://sayalaruano.github.io/) y Juan Zurita. Este proyecto se inició con algunas actividades organizadas por el [RSG Ecuador](https://rsg-ecuador.iscbsc.org/), como se mencionó en la sección anterior. Además, el desarrollo de diferentes partes de este recurso fue apoyado por algunos voluntarios del RSG Ecuador.
+Los fundadores de _HerrCompBioinfo_ son [Sebastián Ayala Ruano](https://sayalaruano.github.io/) y Juan Zurita. Este proyecto se inició con algunas actividades organizadas por el [RSG Ecuador](https://rsg-ecuador.iscbsc.org/), como se mencionó en la sección anterior. Además, el desarrollo de diferentes partes de este recurso fue apoyado por algunos voluntarios del RSG Ecuador.
 
-Esperamos que _HerrComp4Bioinfo_ se convierta en una iniciativa impulsada por la comunidad, donde todos pueden contribuir y colaborar con el desarrollo de este recurso educativo de código abierto.
+Esperamos que _HerrCompBioinfo_ se convierta en una iniciativa impulsada por la comunidad, donde todos pueden contribuir y colaborar con el desarrollo de este recurso educativo de código abierto.
 
 ## ¿Cómo contribuir?
 
-Te animamos a participar como colaborador en este proyecto, considerando tus intereses, disponibilidad, o habilidades. Puede encontrar información detallada sobre las formas de colaborar con este proyecto en nuestra [guía de contribución](CONTRIBUTING.md). Además, debes considerar que se espera que todos los colaboradores que se unan a _HerrComp4Bioinfo_ sigan nuestro [código de conducta](CODE_OF_CONDUCT.md).
+Te animamos a participar como colaborador en este proyecto, considerando tus intereses, disponibilidad, o habilidades. Puede encontrar información detallada sobre las formas de colaborar con este proyecto en nuestra [guía de contribución](CONTRIBUTING.md). Además, debes considerar que se espera que todos los colaboradores que se unan a _HerrCompBioinfo_ sigan nuestro [código de conducta](CODE_OF_CONDUCT.md).
+
+## ¿Cómo citar este recurso?
+
+Puedes citar este recurso de la siguiente forma:
+
+> Sebastián Ayala Ruano, & Juan Esteban Zurita. (2021). HerrCompBioinfo: un recurso educativo de código abierto de herramientas computacionales para entusiastas de la Bioinformática. Zenodo. [https://doi.org/10.5281/zenodo.5748335](https://doi.org/10.5281/zenodo.5748335)
+
+Valoramos mucho cualquier referencia a este recurso y esperamos que sea de ayuda para muchas personas.
 
 ## Contacto
 

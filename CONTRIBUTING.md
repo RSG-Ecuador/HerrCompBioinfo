@@ -1,6 +1,6 @@
 # Contribuyendo
 
-_HerrComp4Bioinfo_ es un proyecto de código abierto, y estamos felices de recibir contribuciones de todo tipo: nuevas secciones o capítulos, correcciones al material existente, informes de errores, revisiones de cambios, apoyo con material de diseño, u otras posibles aportaciones.
+_HerrCompBioinfo_ es un proyecto de código abierto, y estamos felices de recibir contribuciones de todo tipo: nuevas secciones o capítulos, correcciones al material existente, informes de errores, revisiones de cambios, apoyo con material de diseño, u otras posibles aportaciones.
 
 Esta guía de contribución fue modificada bajo la licencia CC-BY de las guías de [Software Carpentry en español](https://github.com/swcarpentry/git-novice-es/blob/gh-pages/CONTRIBUTING.md).
 
@@ -24,7 +24,7 @@ A continuación te explicamos las formas en las que puedes presentar tus sugeren
 
 3. Si no tienes una cuenta de [GitHub][github] y no conoces sobre git puedes enviarnos comentarios por correo electrónico a iscb.rsg.ecuador@gmail.com o sebasar1245@gmail.com. Sin embargo, podremos responder más rápidamente y sería mejor si usas alguno de los métodos descritos antes.
 
-**Nota:** La documentación de [git](https://git-scm.com/doc) y [GitHub](https://guides.github.com/) está muy bien documentada y puedes aprender las habilidades básicas de estas herramientas con estos contenidos. Además, la versión actual de _HerrComp4Bioinfo_ incluye un capítulo sobre los contenidos básicos de git y GitHub, que también puedes usar como referencia para aprender sobre estas herramientas.  
+**Nota:** La documentación de [git](https://git-scm.com/doc) y [GitHub](https://guides.github.com/) está muy bien documentada y puedes aprender las habilidades básicas de estas herramientas con estos contenidos. Además, la versión actual de _HerrCompBioinfo_ incluye un capítulo sobre los contenidos básicos de git y GitHub, que también puedes usar como referencia para aprender sobre estas herramientas.  
 
 ## 3. ¿Dónde Contribuir?
 

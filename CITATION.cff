@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "Puedes citar la última versión de _HerrCompBioinfo_ de la siguiente forma:"
+authors:
+  - family-names: "Ayala-Ruano"
+    given-names: "Sebastián"
+    orcid: "https://orcid.org/0000-0001-9756-6745"
+  - family-names: "Zurita"
+    given-names: "Juan Esteban"
+    orcid: "https://orcid.org/0000-0002-6366-7596"
+title: "HerrCompBioinfo: un recurso educativo de código abierto de herramientas computacionales para entusiastas de la Bioinformática"
+version: 1.0.0
+identifiers:
+  - description: "Concepto de DOI para la colección que contiene todas las versiones del formato de archivo de citación"
+    type: doi
+    value: "10.5281/zenodo.5748335"
+license: "CC-BY-SA-4.0"
+date-released: "2021"
+keywords:
+  - Bioinformática
+  - Educación
+  - Bash
+  - Git
+  - GitHub
+  - AWK
+  - regex
+doi: 10.5281/zenodo.5748335
+url: "https://rsg-ecuador.github.io/HerrComp4Bioinfo/"
