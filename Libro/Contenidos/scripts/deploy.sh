@@ -36,6 +36,7 @@ git checkout source ../.nojekyll
 
 echo "Extracting the files outside the folder and deleting the folder"
 cp -r ../_build/html/* ../../.././
+cp ../.nojekyll ../../.././
 rm -r ../_build/
 
 echo "Adding all the new files in the master branch and make a commit"
