@@ -14,6 +14,9 @@ jupyter-book clean ../.
 echo "Building the website with jupyterbook - you have to install this program in your computer"
 jupyter-book build ../.
 
+echo "Copy the nojekyll file to the build folder"
+cp .nojekyll ../_build/html/
+
 echo "Adding all the new files in the source branch and make a commit"
 git add -A && git commit -m "Actualizar código fuente de HerrCompBioinfo"
 
