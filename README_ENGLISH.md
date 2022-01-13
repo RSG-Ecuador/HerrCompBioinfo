@@ -21,7 +21,7 @@ _HerrCompBioinfo_ is being developed during the [4th cohort of Open Life Science
 
 ## The Team
 
-The founders of _HerrCompBioinfo_ are [Sebastián Ayala Ruano](https://sayalaruano.github.io/) and Juan Zurita. This project started with some activities organized in the [RSG Ecuador](https://rsg-ecuador.iscbsc.org/), as we mentioned in the last section. Also, the development of different parts of this resource was supported by some volunteers of the RSG Ecuador.
+The founders of _HerrCompBioinfo_ are [Sebastián Ayala Ruano](https://sayalaruano.github.io/) and [Juan Zurita](https://github.com/jezur). This project started with some activities organized in the [RSG Ecuador](https://rsg-ecuador.iscbsc.org/), as we mentioned in the last section. Also, the development of different parts of this resource was supported by some volunteers of the RSG Ecuador.
 
 _HerrCompBioinfo_ is meant to be a community-driven initiative, where everyone can contribute and collaborate with the development of this open educational resource.
 
