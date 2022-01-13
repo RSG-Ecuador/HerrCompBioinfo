@@ -44,7 +44,7 @@ Este proyecto se basa en los contenidos de un [grupo de estudio](https://github.
 
 ## El equipo
 
-Los fundadores de _HerrCompBioinfo_ son [Sebastián Ayala Ruano](https://sayalaruano.github.io/) y Juan Zurita. Este proyecto se inició con algunas actividades organizadas por el [RSG Ecuador](https://rsg-ecuador.iscbsc.org/), como se mencionó en la sección anterior. Además, el desarrollo de diferentes partes de este recurso fue apoyado por algunos voluntarios del RSG Ecuador.
+Los fundadores de _HerrCompBioinfo_ son [Sebastián Ayala Ruano](https://sayalaruano.github.io/) y [Juan Zurita](https://github.com/jezur). Este proyecto se inició con algunas actividades organizadas por el [RSG Ecuador](https://rsg-ecuador.iscbsc.org/), como se mencionó en la sección anterior. Además, el desarrollo de diferentes partes de este recurso fue apoyado por algunos voluntarios del RSG Ecuador.
 
 Esperamos que _HerrCompBioinfo_ se convierta en una iniciativa impulsada por la comunidad, donde todos pueden contribuir y colaborar con el desarrollo de este recurso educativo de código abierto.
 
