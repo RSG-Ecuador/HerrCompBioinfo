@@ -1,33 +1,19 @@
-# Each entry has the following schema:
-#
-# - title: mytitle   # Title of chapter or subchapter
-#   file: myfile  # filename relative to the  folder.
-#   sections:  # Contains a list of more entries that make up the chapter's subchapters
-#
-# Below are some special values that trigger specific behavior:
-# - header: My Header  # Will insert a header with no link in the sidebar
-
-# ===== Main Landing Page ========================================
-
-- file: Bienvenida.md
-  numbered: false
-
-- part: Introducción a Unix y GNU/Linux
-  numbered: false
+format: jb-book
+root: Bienvenida.md
+parts:
+- caption: "Introducci\xF3n a Unix y GNU/Linux"
   chapters:
   - file: contenido/01_Unix_GNU-Linux/0_Resumen.md
   - file: contenido/01_Unix_GNU-Linux/1_Conceptos_Unix_GNU_Linux.md
   - file: contenido/01_Unix_GNU-Linux/2_Shell_bash_emulador_terminal.md
   - file: contenido/01_Unix_GNU-Linux/3_Formas_instalacion_emulador_terminal_Bash.md
-- part: Jupyter Notebooks
-  numbered: false
+- caption: Jupyter Notebooks
   chapters:
   - file: contenido/02_JupyterLab/0_Resumen.md
   - file: contenido/02_JupyterLab/1_terminal_primera.md
   - file: contenido/02_JupyterLab/2_anaconda.md
   - file: contenido/02_JupyterLab/3_notebooks.md
-- part: Manejo de Terminal
-  numbered: false
+- caption: Manejo de Terminal
   chapters:
   - file: contenido/03_Manejo_terminal/0_Resumen.md
   - file: contenido/03_Manejo_terminal/1_terminal.md
@@ -36,8 +22,7 @@
   - file: contenido/03_Manejo_terminal/4_wildcards.md
   - file: contenido/03_Manejo_terminal/5_directorios_2.md
   - file: contenido/03_Manejo_terminal/6_variables_amb.md
-- part: Procesamiento de ficheros, regex y pipes
-  numbered: false
+- caption: Procesamiento de ficheros, regex y pipes
   chapters:
   - file: contenido/04_Procesamiento_ficheros_regex_pipes/0_Resumen.md
   - file: contenido/04_Procesamiento_ficheros_regex_pipes/1_Archivos_formatos_comunes_Bioinformatica.md
@@ -46,10 +31,9 @@
   - file: contenido/04_Procesamiento_ficheros_regex_pipes/4_Grep.md
   - file: contenido/04_Procesamiento_ficheros_regex_pipes/5_Sed.md
   - file: contenido/04_Procesamiento_ficheros_regex_pipes/6_Cut_sort.md
-  - file: contenido/04_Procesamiento_ficheros_regex_pipes/7_Pipes.md 
+  - file: contenido/04_Procesamiento_ficheros_regex_pipes/7_Pipes.md
   - file: contenido/04_Procesamiento_ficheros_regex_pipes/8_Respuestas_ejercicios.md
-- part: Ejercicios para procesamiento ficheros en bioinformática
-  numbered: false
+- caption: "Ejercicios para procesamiento ficheros en bioinform\xE1tica"
   chapters:
   - file: contenido/05_Ejercicios_procesamiento_ficheros_Bioinfo/0_Resumen.md
   - file: contenido/05_Ejercicios_procesamiento_ficheros_Bioinfo/1_Preprocesamiento_pdb.md
@@ -60,36 +44,31 @@
   - file: contenido/05_Ejercicios_procesamiento_ficheros_Bioinfo/6_Info_microarray.md
   - file: contenido/05_Ejercicios_procesamiento_ficheros_Bioinfo/7_Sitios_restric.md
   - file: contenido/05_Ejercicios_procesamiento_ficheros_Bioinfo/8_Respuestas_ejercicios.md
-- part: Make
-  numbered: false
+- caption: Make
   chapters:
   - file: contenido/06_Make/0_Resumen.md
   - file: contenido/06_Make/1_Make.md
-- part: SAMTools
-  numbered: false
+- caption: SAMTools
   chapters:
   - file: contenido/07_SAM_Tools/0_Resumen.md
   - file: contenido/07_SAM_Tools/1_inst.md
   - file: contenido/07_SAM_Tools/2_dwnl.md
   - file: contenido/07_SAM_Tools/3_impl.md
-- part: AWK
-  numbered: false
+- caption: AWK
   chapters:
   - file: contenido/08_AWK/0_Resumen.md
   - file: contenido/08_AWK/1_Conceptos_generales_variables_internas_awk.md
   - file: contenido/08_AWK/2_Estructura_programas_sintax_awk.md
   - file: contenido/08_AWK/3_Ejemplos_awk.md
   - file: contenido/08_AWK/4_Respuestas_ejercicios.md
-- part: Bash
-  numbered: false
+- caption: Bash
   chapters:
   - file: contenido/09_Bash/0_Resumen.md
   - file: contenido/09_Bash/1_scripts.md
   - file: contenido/09_Bash/2_condicionales_arreglos.md
   - file: contenido/09_Bash/3_bucles.md
   - file: contenido/09_Bash/4_funciones.md
-- part: Git y GitHub
-  numbered: false
+- caption: Git y GitHub
   chapters:
   - file: contenido/10_Git_GitHub/0_Resumen.md
   - file: contenido/10_Git_GitHub/1_Git.md
