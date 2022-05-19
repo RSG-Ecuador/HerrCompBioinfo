@@ -1,0 +1,748 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conceptos de Unix y GNU/Linux &#8212; HerrCompBioinfo</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://rsg-ecuador.github.io/HerrComp4Bioinfo/contenido/01_Unix_GNU-Linux/1_Conceptos_Unix_GNU_Linux.html" />
+    <link rel="shortcut icon" href="../../_static/favicon-32x32.png"/>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="Shell, Bash, emulador de terminal, y otras definiciones" href="2_Shell_bash_emulador_terminal.html" />
+    <link rel="prev" title="Resumen" href="0_Resumen.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">HerrCompBioinfo</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Bienvenida.html">
+   Bienvenido/a
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introducción a Unix y GNU/Linux
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Conceptos de Unix y GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Shell_bash_emulador_terminal.html">
+   Shell, Bash, emulador de terminal, y otras definiciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Formas_instalacion_emulador_terminal_Bash.html">
+   Formas de instalar un emulador de terminal de Bash
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Jupyter Notebooks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/1_terminal_primera.html">
+   Organización de archivos en este libro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/2_anaconda.html">
+   Instalación de Anaconda, Jupyter Lab y Kernel de Bash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/3_notebooks.html">
+   Creación de Jupyter Notebooks
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Manejo de Terminal
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/1_terminal.html">
+   Terminal: Interacción con la Shell en Linux, MacOS y Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/2_comandos.html">
+   Comandos en la shell
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/3_directorios.html">
+   Directorios y archivos en UNIX: Parte 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/4_wildcards.html">
+   Wildcards y Streams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/5_directorios_2.html">
+   Directorios y archivos en UNIX: Parte 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/6_variables_amb.html">
+   Variables de ambiente
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Procesamiento de ficheros, regex y pipes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/1_Archivos_formatos_comunes_Bioinformatica.html">
+   Archivos y formatos comunes en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/2_Editores_de_texto.html">
+   Editores de texto
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/3_Expresiones_regulares.html">
+   Expresiones regulares (
+   <em>
+    regex
+   </em>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/4_Grep.html">
+   Grep
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/5_Sed.html">
+   Sed
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/6_Cut_sort.html">
+   Cut, sort
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/7_Pipes.html">
+   Pipes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/8_Respuestas_ejercicios.html">
+   Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ejercicios para procesamiento ficheros en bioinformática
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/1_Preprocesamiento_pdb.html">
+   Pre-procesamiento de archivo PDB antes de realizar dinámica molecular
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/2_Motivos_fasta.html">
+   Búsqueda de motivos en archivo fasta de una secuencia de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/3_Info_multifasta_genomas.html">
+   Extracción de información de archivo multifasta de genomas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/4_Info_multifasta_proteoma.html">
+   Extracción de información de archivo multi-fasta de secuencias de aminoácidos (proteoma)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/5_Info_fastq.html">
+   Extracción de información de archivos fastq
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/6_Info_microarray.html">
+   Extracción de información de archivo de experimento de microarray
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/7_Sitios_restric.html">
+   Búsqueda de sitios de restricción en archivos fasta de secuencias de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/8_Respuestas_ejercicios.html">
+   Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Make
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/1_Make.html">
+   Make
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  SAMTools
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/1_inst.html">
+   Instalación de herramientas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/2_dwnl.html">
+   Descarga de secuencias
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/3_impl.html">
+   Implementación
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  AWK
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_AWK/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_AWK/1_Conceptos_generales_variables_internas_awk.html">
+   Conceptos generales, instalación y variables internas AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_AWK/2_Estructura_programas_sintax_awk.html">
+   Estructura de scripts y sintaxis AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_AWK/3_Ejemplos_awk.html">
+   Ejemplos generales y con enfoque en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_AWK/4_Respuestas_ejercicios.html">
+   Respuestas ejercicios deber AWK
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bash
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09_Bash/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09_Bash/1_scripts.html">
+   Scripts en Bash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09_Bash/2_condicionales_arreglos.html">
+   Lógica, condicionales y arreglos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09_Bash/3_bucles.html">
+   Bucles for y while
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09_Bash/4_funciones.html">
+   Funciones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Git y GitHub
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_Git_GitHub/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_Git_GitHub/1_Git.html">
+   Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_Git_GitHub/2_GitHub.html">
+   GitHub
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Visita nuestro <a href="https://github.com/RSG-Ecuador/HerrComp4Bioinfo">repositorio de GitHub</a> <div>Este libro fue desarrollado con <a href="https://jupyterbook.org">Jupyter Book</a></div>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/contenido/01_Unix_GNU-Linux/1_Conceptos_Unix_GNU_Linux.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/RSG-Ecuador/HerrComp4Bioinfo"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/RSG-Ecuador/HerrComp4Bioinfo/issues/new?title=Issue%20on%20page%20%2Fcontenido/01_Unix_GNU-Linux/1_Conceptos_Unix_GNU_Linux.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        <a class="edit-button" href="https://github.com/RSG-Ecuador/HerrComp4Bioinfo/edit/source/Libro/Contenidos/contenido/01_Unix_GNU-Linux/1_Conceptos_Unix_GNU_Linux.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edita esta página"><i class="fas fa-pencil-alt"></i>sugerir editar</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-unix">
+   ¿Qué es UNIX?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gnu-linux">
+   GNU/Linux
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filosofia-de-gnu-linux">
+   Filosofía de GNU/Linux
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distribuciones-de-gnu-linux">
+   Distribuciones de GNU/Linux
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ubuntu">
+   Ubuntu
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#material-suplementario">
+   Material suplementario
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Conceptos de Unix y GNU/Linux</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-unix">
+   ¿Qué es UNIX?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gnu-linux">
+   GNU/Linux
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filosofia-de-gnu-linux">
+   Filosofía de GNU/Linux
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distribuciones-de-gnu-linux">
+   Distribuciones de GNU/Linux
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ubuntu">
+   Ubuntu
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#material-suplementario">
+   Material suplementario
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="conceptos-de-unix-y-gnu-linux">
+<h1>Conceptos de Unix y GNU/Linux<a class="headerlink" href="#conceptos-de-unix-y-gnu-linux" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="que-es-unix">
+<h2>¿Qué es UNIX?<a class="headerlink" href="#que-es-unix" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>Sistema operativo (SO) creado por <strong>Ken Thompson y Dennis Ritchie</strong> de la empresa <em>Bell Laboratories</em> en 1969.</p></li>
+<li><p>SO multi-tarea y multi-usuario.</p></li>
+<li><p>La mayoría de SO basados en UNIX hasta 1980 eran comerciales, se usaban por empresas y universidades.</p></li>
+<li><p>Algunos ejemplos: Solaris, HP/UX, BSD, Mac OS X, GNU/Linux, entre otros.</p></li>
+</ul>
+<div class="figure align-default" id="unix">
+<img alt="unix logo" src="../../_images/unix.png" />
+<p class="caption"><span class="caption-number">Figura 2 </span><span class="caption-text">Logo de Unix. Imagen utilizada bajo la licencia <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. <a class="reference external" href="https://commons.wikimedia.org/wiki/File:UniX_Logo.png">https://commons.wikimedia.org/wiki/File:UniX_Logo.png</a></span><a class="headerlink" href="#unix" title="Enlace permanente a esta imagen">¶</a></p>
+</div>
+</div>
+<div class="section" id="gnu-linux">
+<h2>GNU/Linux<a class="headerlink" href="#gnu-linux" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>En 1983 <strong>Richard Stallman</strong> lideró la iniciativa <a class="reference external" href="https://www.gnu.org/">GNU</a> (GNU’s Not Unix), un SO compatible con UNIX de libre distribución y acceso sin restricciones al código fuente.</p></li>
+<li><p>En 1991 <strong>Linus Torvalds</strong> creó su propio <a class="reference external" href="https://linuxjourney.com/lesson/kernel-overview">kernel</a> (Linux), que es la parte del SO que permite la comunicación con los componentes de Hardware. Este kernel fue distribuido de forma libre y gratuita.</p></li>
+<li><p>Ambos proyectos se juntaron y se creó <strong>GNU/Linux</strong></p></li>
+</ul>
+<div class="figure align-default" id="id1">
+<a class="reference internal image-reference" href="../../_images/GNU_Linux.png"><img alt="GNU Linux logo" src="../../_images/GNU_Linux.png" style="width: 350px;" /></a>
+<p class="caption"><span class="caption-number">Figura 3 </span><span class="caption-text">Logo de GNU y Linux. Imagen utilizada bajo la licencia <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. <a class="reference external" href="https://flyclipart.com/gnulinux-sistema-operativo-gnu-linux-person-human-snowman-hd-png-download-1259559">https://flyclipart.com/gnulinux-sistema-operativo-gnu-linux-person-human-snowman-hd-png-download-1259559</a></span><a class="headerlink" href="#id1" title="Enlace permanente a esta imagen">¶</a></p>
+</div>
+</div>
+<div class="section" id="filosofia-de-gnu-linux">
+<h2>Filosofía de GNU/Linux<a class="headerlink" href="#filosofia-de-gnu-linux" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>Los usuarios son libres de <strong>ejecutar, copiar, distribuir, estudiar, cambiar y mejorar</strong> el software.</p></li>
+<li><p>El <a class="reference external" href="https://www.gnu.org/philosophy/free-sw.html">software libre</a> se refiere a las libertades mencionadas, no al precio.</p></li>
+<li><p>Existen diferentes alternativas para crear software con las libertades mencionadas, incluyendo la idea del <a class="reference external" href="https://opensource.org/">open source</a> y <a class="reference external" href="https://www.gnu.org/philosophy/free-sw.html">free software</a>, que tienen ciertas diferencias, pero sus fundamentos son muy similares.</p></li>
+</ul>
+</div>
+<div class="section" id="distribuciones-de-gnu-linux">
+<h2>Distribuciones de GNU/Linux<a class="headerlink" href="#distribuciones-de-gnu-linux" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>Tienen en común el <strong>kernel Linux</strong>, <strong>software por defecto de GNU</strong> y otras herramientas como editores de texto, entre otros.</p></li>
+<li><p>Difieren en el software de instalación (apt, pacman, entre otros), aplicaciones de oficina, exploradores web, documentación, costo, calidad del software, soporte de la comunidad, facilidad de uso, entre otras.</p></li>
+</ul>
+<div class="figure align-default" id="gnu-linux-distros">
+<img alt="Árbol de distros de GNU Linux" src="../../_images/Linux_distros.png" />
+<p class="caption"><span class="caption-number">Figura 4 </span><span class="caption-text">Árbol jerárquico de distribuciones de GNU/Linux. Imagen utilizada bajo la licencia <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Linux_distros_tree.png">https://commons.wikimedia.org/wiki/File:Linux_distros_tree.png</a></span><a class="headerlink" href="#gnu-linux-distros" title="Enlace permanente a esta imagen">¶</a></p>
+</div>
+</div>
+<div class="section" id="ubuntu">
+<h2>Ubuntu<a class="headerlink" href="#ubuntu" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>Una de las distribuciones de GNU/Linux más populares.</p></li>
+<li><p>Está basada en <a class="reference external" href="https://www.debian.org/">Debian</a> y fue desarrollada por la empresa <a class="reference external" href="https://canonical.com/"><em>Canonical</em></a>.</p></li>
+<li><p>Facilidad de uso e instalación.</p></li>
+<li><p>Interfaz de usuario amigable.</p></li>
+</ul>
+<div class="figure align-default" id="logo-ubuntu">
+<a class="reference internal image-reference" href="../../_images/ubuntu.png"><img alt="Logo de Ubuntu" src="../../_images/ubuntu.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-number">Figura 5 </span><span class="caption-text">Logo de Ubuntu. Imagen utilizada bajo la licencia <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Ubuntu_and_Ubuntu_Server_Icon.png">https://commons.wikimedia.org/wiki/File:Ubuntu_and_Ubuntu_Server_Icon.png</a></span><a class="headerlink" href="#logo-ubuntu" title="Enlace permanente a esta imagen">¶</a></p>
+</div>
+</div>
+<div class="section" id="material-suplementario">
+<h2>Material suplementario<a class="headerlink" href="#material-suplementario" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Si quieren aprender temas más especializados sobre UNIX y GNU/Linux pueden explorar los siguientes recursos, que son de acceso libre:</p>
+<ul class="simple">
+<li><p>Kross, S. (2017). <em>The unix workbench</em>. Leanpub. <a class="reference external" href="https://leanpub.com/unix">https://leanpub.com/unix</a></p></li>
+<li><p>Ross, A. (2019). <em>The Ultimate Linux Newbie Guide</em>. <a class="reference external" href="https://linuxnewbieguide.org/">https://linuxnewbieguide.org/</a></p></li>
+<li><p>Shotts, W. (2019). <em>The Linux command line: a complete introduction</em>. No Starch Press. <a class="reference external" href="http://www.linuxcommand.org/tlcl.php/index.php">http://www.linuxcommand.org/tlcl.php/index.php</a></p></li>
+<li><p>Linux Journey. (2020). Linux Journey. <a class="reference external" href="https://linuxjourney.com/">https://linuxjourney.com/</a></p></li>
+<li><p>GNU. (2020). GNU. <a class="reference external" href="https://www.gnu.org/">https://www.gnu.org/</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contenido/01_Unix_GNU-Linux"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="0_Resumen.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title">Resumen</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="2_Shell_bash_emulador_terminal.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Shell, Bash, emulador de terminal, y otras definiciones</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por comunidad HerrCompBioinfo<br/>
+    
+        &copy; Derechos de autor 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

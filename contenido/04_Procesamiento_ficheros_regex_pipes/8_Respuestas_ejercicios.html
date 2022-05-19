@@ -1,0 +1,725 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Respuestas ejercicios deber &#8212; HerrCompBioinfo</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://rsg-ecuador.github.io/HerrComp4Bioinfo/contenido/04_Procesamiento_ficheros_regex_pipes/8_Respuestas_ejercicios.html" />
+    <link rel="shortcut icon" href="../../_static/favicon-32x32.png"/>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="Resumen" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/0_Resumen.html" />
+    <link rel="prev" title="Pipes" href="7_Pipes.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">HerrCompBioinfo</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Bienvenida.html">
+   Bienvenido/a
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introducción a Unix y GNU/Linux
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/1_Conceptos_Unix_GNU_Linux.html">
+   Conceptos de Unix y GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/2_Shell_bash_emulador_terminal.html">
+   Shell, Bash, emulador de terminal, y otras definiciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/3_Formas_instalacion_emulador_terminal_Bash.html">
+   Formas de instalar un emulador de terminal de Bash
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Jupyter Notebooks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/1_terminal_primera.html">
+   Organización de archivos en este libro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/2_anaconda.html">
+   Instalación de Anaconda, Jupyter Lab y Kernel de Bash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/3_notebooks.html">
+   Creación de Jupyter Notebooks
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Manejo de Terminal
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/1_terminal.html">
+   Terminal: Interacción con la Shell en Linux, MacOS y Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/2_comandos.html">
+   Comandos en la shell
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/3_directorios.html">
+   Directorios y archivos en UNIX: Parte 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/4_wildcards.html">
+   Wildcards y Streams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/5_directorios_2.html">
+   Directorios y archivos en UNIX: Parte 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/6_variables_amb.html">
+   Variables de ambiente
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Procesamiento de ficheros, regex y pipes
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Archivos_formatos_comunes_Bioinformatica.html">
+   Archivos y formatos comunes en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Editores_de_texto.html">
+   Editores de texto
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Expresiones_regulares.html">
+   Expresiones regulares (
+   <em>
+    regex
+   </em>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Grep.html">
+   Grep
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5_Sed.html">
+   Sed
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_Cut_sort.html">
+   Cut, sort
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7_Pipes.html">
+   Pipes
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ejercicios para procesamiento ficheros en bioinformática
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/1_Preprocesamiento_pdb.html">
+   Pre-procesamiento de archivo PDB antes de realizar dinámica molecular
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/2_Motivos_fasta.html">
+   Búsqueda de motivos en archivo fasta de una secuencia de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/3_Info_multifasta_genomas.html">
+   Extracción de información de archivo multifasta de genomas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/4_Info_multifasta_proteoma.html">
+   Extracción de información de archivo multi-fasta de secuencias de aminoácidos (proteoma)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/5_Info_fastq.html">
+   Extracción de información de archivos fastq
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/6_Info_microarray.html">
+   Extracción de información de archivo de experimento de microarray
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/7_Sitios_restric.html">
+   Búsqueda de sitios de restricción en archivos fasta de secuencias de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/8_Respuestas_ejercicios.html">
+   Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Make
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/1_Make.html">
+   Make
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  SAMTools
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/1_inst.html">
+   Instalación de herramientas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/2_dwnl.html">
+   Descarga de secuencias
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/3_impl.html">
+   Implementación
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  AWK
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_AWK/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_AWK/1_Conceptos_generales_variables_internas_awk.html">
+   Conceptos generales, instalación y variables internas AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_AWK/2_Estructura_programas_sintax_awk.html">
+   Estructura de scripts y sintaxis AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_AWK/3_Ejemplos_awk.html">
+   Ejemplos generales y con enfoque en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_AWK/4_Respuestas_ejercicios.html">
+   Respuestas ejercicios deber AWK
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bash
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09_Bash/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09_Bash/1_scripts.html">
+   Scripts en Bash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09_Bash/2_condicionales_arreglos.html">
+   Lógica, condicionales y arreglos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09_Bash/3_bucles.html">
+   Bucles for y while
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09_Bash/4_funciones.html">
+   Funciones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Git y GitHub
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_Git_GitHub/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_Git_GitHub/1_Git.html">
+   Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_Git_GitHub/2_GitHub.html">
+   GitHub
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Visita nuestro <a href="https://github.com/RSG-Ecuador/HerrComp4Bioinfo">repositorio de GitHub</a> <div>Este libro fue desarrollado con <a href="https://jupyterbook.org">Jupyter Book</a></div>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/contenido/04_Procesamiento_ficheros_regex_pipes/8_Respuestas_ejercicios.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/RSG-Ecuador/HerrComp4Bioinfo"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/RSG-Ecuador/HerrComp4Bioinfo/issues/new?title=Issue%20on%20page%20%2Fcontenido/04_Procesamiento_ficheros_regex_pipes/8_Respuestas_ejercicios.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        <a class="edit-button" href="https://github.com/RSG-Ecuador/HerrComp4Bioinfo/edit/source/Libro/Contenidos/contenido/04_Procesamiento_ficheros_regex_pipes/8_Respuestas_ejercicios.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edita esta página"><i class="fas fa-pencil-alt"></i>sugerir editar</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Respuestas ejercicios deber</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="respuestas-ejercicios-deber">
+<h1>Respuestas ejercicios deber<a class="headerlink" href="#respuestas-ejercicios-deber" title="Enlazar permanentemente con este título">¶</a></h1>
+<p><strong>4.4</strong></p>
+<ol class="simple">
+<li><p>3</p></li>
+<li><p>Usar flag i</p></li>
+<li><p>No</p></li>
+</ol>
+<p><strong>4.5</strong></p>
+<ol class="simple">
+<li><p>lan[sz]an</p></li>
+<li><p>[d-pQ-W1-3]</p></li>
+<li><p>tan, lansan, representan, lanzan</p></li>
+<li><p>caracter de espacio, s, z</p></li>
+<li><p>[+*]</p></li>
+<li><p>Verso [\d]:[Rc]o[mb][pe][ur][to][ao]</p></li>
+<li><p>s (single-line)</p></li>
+<li><p>\d\d[-/.]\d\d[-/.]\d\d</p></li>
+</ol>
+<p><strong>4.6</strong></p>
+<ol class="simple">
+<li><p>Flag m (multiple line)</p></li>
+<li><p>No</p></li>
+<li><p>No</p></li>
+<li><p>\AFecha:\d\d[-/.]\d\d[-/.]\d\d</p></li>
+<li><p>corazón \Z</p></li>
+<li><p>tercera, primera, computadora, Porque, representan</p></li>
+</ol>
+<p><strong>4.7</strong></p>
+<ol class="simple">
+<li><p>Si</p></li>
+<li><p>No</p></li>
+</ol>
+<p><strong>4.8</strong></p>
+<ol class="simple">
+<li><p>compasión</p></li>
+<li><p>La línea que posee solo Ni se identifica con el meta-caracter *, pero no con +</p></li>
+<li><p>^Ni[\w ]*computadora<span class="math notranslate nohighlight">\( (es solo un símbolo de ancla de final de línea) o ^Ni[\w ]+computadora\)</span></p></li>
+<li><p>\bNi[\w ]*computadora\b o \bNi[\w ]+computadora\b</p></li>
+<li><p>[1-9][0-9]{1,2}</p></li>
+</ol>
+<p><strong>4.9</strong></p>
+<ol class="simple">
+<li><p>Si</p></li>
+<li><p>Si</p></li>
+<li><p>tan, ufano</p></li>
+</ol>
+<p><strong>5.3</strong></p>
+<ol class="simple">
+<li><p>Si, el meta-caracter | fue reconocido de forma adecuada</p></li>
+</ol>
+<p><strong>5.4</strong></p>
+<ol class="simple">
+<li><p>No hay una sola respuesta, depende de tu SO</p></li>
+<li><p>grep -i «computadora» Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+<li><p>echo «computadora» &gt; palabras.txt
+echo «Roberto» &gt;&gt; palabras.txt
+grep -i -f palabras.txt Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+<li><p>Los comandos coincidieron</p></li>
+<li><p>Si hay diferencia, la opción <code class="docutils literal notranslate"><span class="pre">-w</span></code> busca solo palabras completas</p></li>
+<li><p>Si hay diferencia, la opción <code class="docutils literal notranslate"><span class="pre">-x</span></code> busca líneas enteras que coincidan con el patrón.</p></li>
+<li><p>grep -E -i -v «computadora|Roberto» Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+<li><p>grep -E -c «^[» Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt
+grep -E -c «[[A-Z a-Z0-9:]*]» Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+<li><p>grep -E -i -c «[0-9]:computadora» Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt
+grep -E -i -c «[0-9]:Roberto» Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt
+grep -E -i -c «[0-9]:Roberto y » Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+<li><p>¿Sin alma ni corazón?</p></li>
+<li><p>grep -E -n «(ión|ono|ando)$» Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+<li><p>3 con <code class="docutils literal notranslate"><span class="pre">ión</span></code>, 2 con <code class="docutils literal notranslate"><span class="pre">ono</span></code>, y 2 con <code class="docutils literal notranslate"><span class="pre">ando</span></code></p></li>
+<li><p>Si, se coloca un tab antes de cada línea</p></li>
+<li><p>3: 9, 5: , 10: , 12:</p></li>
+<li><p>grep -E -n -A 9 «Verso 3» Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt &gt; verso3.txt</p></li>
+<li><p>Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt, verso10.txt, verso12.txt</p></li>
+<li><p>alumnos.txt, notas.txt, verso3.txt, verso5.txt</p></li>
+<li><p>La opción <code class="docutils literal notranslate"><span class="pre">-H</span></code> imprime el nombre de los archivos y <code class="docutils literal notranslate"><span class="pre">-h</span></code> no imprime esto</p></li>
+</ol>
+<p><strong>6.3</strong></p>
+<ol class="simple">
+<li><p>No hay una sola respuesta, depende de tu SO</p></li>
+</ol>
+<p><strong>6.5</strong></p>
+<ol class="simple">
+<li><p>sed -r “s!([0-9]){2}[-/.]([0-9]){2}[-/.]([0-9]){2}!20/04/20!g” Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+<li><p>sed -r “s/^O[a-zA-Z ]*ver$/Quizá no quiere observar/m” Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+<li><p>sed -r “s/\bVerso/Estrofa/g” Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+<li><p>sed -r “s|/|-|2” Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+</ol>
+<p><strong>6.6</strong></p>
+<ol class="simple">
+<li><p>sed -r “/:Roberto/d” Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+<li><p>sed -r -n “/^¿/p” Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+<li><p>sed -r “/^[/a \ “ Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+</ol>
+<p><strong>6.7</strong></p>
+<ol class="simple">
+<li><p>sed -r “20i \ “ Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+<li><p>sed -r “$c FIN” Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+</ol>
+<p><strong>7.3</strong></p>
+<ol class="simple">
+<li><p>No hay una sola respuesta, depende de tu SO</p></li>
+<li><p>cut -f 2-4 notasfinal.txt</p></li>
+<li><p>cut -f 1 -d «,» notasfinal.txt</p></li>
+<li><p>cut -f 1 -d «,» –complement notasfinal.txt</p></li>
+<li><p>–output-delimiter «,»</p></li>
+<li><p>No se cumple la predicción, el resultado es el caracter <em>ñ</em>, que se representa con dos bytes</p></li>
+</ol>
+<p><strong>7.5</strong></p>
+<ol class="simple">
+<li><p>sort -k 3 -u alumnos.txt</p></li>
+<li><p>sort -g -k 7 -r  notasfinal.txt</p></li>
+</ol>
+<p><strong>8.3</strong></p>
+<ol class="simple">
+<li><p>ls -l img | grep «png»</p></li>
+<li><p>cut -f 1 -d «,» alumnos.txt | sort -u</p></li>
+<li><p>paste alumnos.txt notas.txt | cut -f 1-2,4 | sort -u | sort -g -k 6 -r</p></li>
+<li><p>paste alumnos.txt notas.txt | sort -u | grep «Moore»</p></li>
+<li><p>grep «^[» Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt | sed -r “/computadora|Computadora/d” &gt; versos.txt</p></li>
+</ol>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contenido/04_Procesamiento_ficheros_regex_pipes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="7_Pipes.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title">Pipes</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/0_Resumen.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Resumen</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por comunidad HerrCompBioinfo<br/>
+    
+        &copy; Derechos de autor 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

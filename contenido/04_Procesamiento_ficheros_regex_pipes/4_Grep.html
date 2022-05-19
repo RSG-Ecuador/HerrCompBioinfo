@@ -1,0 +1,1213 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grep &#8212; HerrCompBioinfo</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://rsg-ecuador.github.io/HerrComp4Bioinfo/contenido/04_Procesamiento_ficheros_regex_pipes/4_Grep.html" />
+    <link rel="shortcut icon" href="../../_static/favicon-32x32.png"/>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="Sed" href="5_Sed.html" />
+    <link rel="prev" title="Expresiones regulares (regex)" href="3_Expresiones_regulares.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">HerrCompBioinfo</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Bienvenida.html">
+   Bienvenido/a
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introducción a Unix y GNU/Linux
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/1_Conceptos_Unix_GNU_Linux.html">
+   Conceptos de Unix y GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/2_Shell_bash_emulador_terminal.html">
+   Shell, Bash, emulador de terminal, y otras definiciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/3_Formas_instalacion_emulador_terminal_Bash.html">
+   Formas de instalar un emulador de terminal de Bash
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Jupyter Notebooks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/1_terminal_primera.html">
+   Organización de archivos en este libro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/2_anaconda.html">
+   Instalación de Anaconda, Jupyter Lab y Kernel de Bash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/3_notebooks.html">
+   Creación de Jupyter Notebooks
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Manejo de Terminal
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/1_terminal.html">
+   Terminal: Interacción con la Shell en Linux, MacOS y Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/2_comandos.html">
+   Comandos en la shell
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/3_directorios.html">
+   Directorios y archivos en UNIX: Parte 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/4_wildcards.html">
+   Wildcards y Streams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/5_directorios_2.html">
+   Directorios y archivos en UNIX: Parte 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/6_variables_amb.html">
+   Variables de ambiente
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Procesamiento de ficheros, regex y pipes
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Archivos_formatos_comunes_Bioinformatica.html">
+   Archivos y formatos comunes en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Editores_de_texto.html">
+   Editores de texto
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Expresiones_regulares.html">
+   Expresiones regulares (
+   <em>
+    regex
+   </em>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Grep
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5_Sed.html">
+   Sed
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_Cut_sort.html">
+   Cut, sort
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7_Pipes.html">
+   Pipes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8_Respuestas_ejercicios.html">
+   Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ejercicios para procesamiento ficheros en bioinformática
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/1_Preprocesamiento_pdb.html">
+   Pre-procesamiento de archivo PDB antes de realizar dinámica molecular
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/2_Motivos_fasta.html">
+   Búsqueda de motivos en archivo fasta de una secuencia de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/3_Info_multifasta_genomas.html">
+   Extracción de información de archivo multifasta de genomas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/4_Info_multifasta_proteoma.html">
+   Extracción de información de archivo multi-fasta de secuencias de aminoácidos (proteoma)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/5_Info_fastq.html">
+   Extracción de información de archivos fastq
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/6_Info_microarray.html">
+   Extracción de información de archivo de experimento de microarray
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/7_Sitios_restric.html">
+   Búsqueda de sitios de restricción en archivos fasta de secuencias de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/8_Respuestas_ejercicios.html">
+   Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Make
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/1_Make.html">
+   Make
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  SAMTools
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/1_inst.html">
+   Instalación de herramientas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/2_dwnl.html">
+   Descarga de secuencias
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/3_impl.html">
+   Implementación
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  AWK
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_AWK/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_AWK/1_Conceptos_generales_variables_internas_awk.html">
+   Conceptos generales, instalación y variables internas AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_AWK/2_Estructura_programas_sintax_awk.html">
+   Estructura de scripts y sintaxis AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_AWK/3_Ejemplos_awk.html">
+   Ejemplos generales y con enfoque en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_AWK/4_Respuestas_ejercicios.html">
+   Respuestas ejercicios deber AWK
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bash
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09_Bash/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09_Bash/1_scripts.html">
+   Scripts en Bash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09_Bash/2_condicionales_arreglos.html">
+   Lógica, condicionales y arreglos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09_Bash/3_bucles.html">
+   Bucles for y while
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09_Bash/4_funciones.html">
+   Funciones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Git y GitHub
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_Git_GitHub/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_Git_GitHub/1_Git.html">
+   Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_Git_GitHub/2_GitHub.html">
+   GitHub
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Visita nuestro <a href="https://github.com/RSG-Ecuador/HerrComp4Bioinfo">repositorio de GitHub</a> <div>Este libro fue desarrollado con <a href="https://jupyterbook.org">Jupyter Book</a></div>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/contenido/04_Procesamiento_ficheros_regex_pipes/4_Grep.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/RSG-Ecuador/HerrComp4Bioinfo"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/RSG-Ecuador/HerrComp4Bioinfo/issues/new?title=Issue%20on%20page%20%2Fcontenido/04_Procesamiento_ficheros_regex_pipes/4_Grep.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        <a class="edit-button" href="https://github.com/RSG-Ecuador/HerrComp4Bioinfo/edit/source/Libro/Contenidos/contenido/04_Procesamiento_ficheros_regex_pipes/4_Grep.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edita esta página"><i class="fas fa-pencil-alt"></i>sugerir editar</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#archivo-para-este-tutorial">
+   Archivo para este tutorial
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-grep">
+   ¿Qué es grep?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diferentes-versiones-de-grep-g-e-f-p">
+   Diferentes versiones de grep:
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     -G
+    </span>
+    <span class="pre">
+     -E
+    </span>
+    <span class="pre">
+     -F
+    </span>
+    <span class="pre">
+     -P
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#opciones-de-la-herramienta-grep">
+   Opciones de la herramienta grep
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#informacion-general-del-programa-version-help">
+     Información general del programa:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       --version,
+      </span>
+      <span class="pre">
+       --help
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#flags-e-f-i-v-w-x">
+     Flags:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       -e
+      </span>
+      <span class="pre">
+       -f
+      </span>
+      <span class="pre">
+       -i
+      </span>
+      <span class="pre">
+       -v
+      </span>
+      <span class="pre">
+       -w
+      </span>
+      <span class="pre">
+       -x
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#control-general-de-salida-c-color-l-l-m-o-q-s">
+     Control general de salida:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       -c
+      </span>
+      <span class="pre">
+       --color
+      </span>
+      <span class="pre">
+       -L
+      </span>
+      <span class="pre">
+       -l
+      </span>
+      <span class="pre">
+       -m
+      </span>
+      <span class="pre">
+       -o
+      </span>
+      <span class="pre">
+       -q
+      </span>
+      <span class="pre">
+       -s
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#control-de-prefijo-de-linea-de-salida-h-h-n-t">
+     Control de prefijo de línea de salida :
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       -H
+      </span>
+      <span class="pre">
+       -h
+      </span>
+      <span class="pre">
+       -n
+      </span>
+      <span class="pre">
+       -T
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#control-de-contexto-de-linea-a-b-c">
+     Control de contexto de línea:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       -A
+      </span>
+      <span class="pre">
+       -B
+      </span>
+      <span class="pre">
+       -C
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#seleccion-de-archivos-o-directorios-r-exclude-glob-include-glob">
+     Selección de archivos o directorios:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       -r
+      </span>
+      <span class="pre">
+       --exclude=glob
+      </span>
+      <span class="pre">
+       --include=glob
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#material-suplementario">
+   Material suplementario
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Grep</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#archivo-para-este-tutorial">
+   Archivo para este tutorial
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-grep">
+   ¿Qué es grep?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diferentes-versiones-de-grep-g-e-f-p">
+   Diferentes versiones de grep:
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     -G
+    </span>
+    <span class="pre">
+     -E
+    </span>
+    <span class="pre">
+     -F
+    </span>
+    <span class="pre">
+     -P
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#opciones-de-la-herramienta-grep">
+   Opciones de la herramienta grep
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#informacion-general-del-programa-version-help">
+     Información general del programa:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       --version,
+      </span>
+      <span class="pre">
+       --help
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#flags-e-f-i-v-w-x">
+     Flags:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       -e
+      </span>
+      <span class="pre">
+       -f
+      </span>
+      <span class="pre">
+       -i
+      </span>
+      <span class="pre">
+       -v
+      </span>
+      <span class="pre">
+       -w
+      </span>
+      <span class="pre">
+       -x
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#control-general-de-salida-c-color-l-l-m-o-q-s">
+     Control general de salida:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       -c
+      </span>
+      <span class="pre">
+       --color
+      </span>
+      <span class="pre">
+       -L
+      </span>
+      <span class="pre">
+       -l
+      </span>
+      <span class="pre">
+       -m
+      </span>
+      <span class="pre">
+       -o
+      </span>
+      <span class="pre">
+       -q
+      </span>
+      <span class="pre">
+       -s
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#control-de-prefijo-de-linea-de-salida-h-h-n-t">
+     Control de prefijo de línea de salida :
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       -H
+      </span>
+      <span class="pre">
+       -h
+      </span>
+      <span class="pre">
+       -n
+      </span>
+      <span class="pre">
+       -T
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#control-de-contexto-de-linea-a-b-c">
+     Control de contexto de línea:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       -A
+      </span>
+      <span class="pre">
+       -B
+      </span>
+      <span class="pre">
+       -C
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#seleccion-de-archivos-o-directorios-r-exclude-glob-include-glob">
+     Selección de archivos o directorios:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       -r
+      </span>
+      <span class="pre">
+       --exclude=glob
+      </span>
+      <span class="pre">
+       --include=glob
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#material-suplementario">
+   Material suplementario
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="grep">
+<h1>Grep<a class="headerlink" href="#grep" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>En esta parte de la guía estudiaremos la herramienta grep. Al igual que la parte de regex, este tutorial tiene un enfoque general, sin aplicaciones en Bioinformática (lo que veremos más adelante).</p>
+<div class="note admonition">
+<p class="admonition-title">Nota importante</p>
+<p>En la mayoría de secciones existen preguntas y pequeños ejercicios, marcados con la etiqueta <code class="docutils literal notranslate"><span class="pre">Pregunta</span></code>, cuyas respuestas deben ser realizadas como deber de esta parte del curso. Debes guardar las respuestas en el <strong>Jupyter notebook</strong> que debes entregar en este capítulo y correr los comandos en las preguntas que esto sea posible.</p>
+</div>
+<p>En la última parte de este capítulo se encuentran las repuestas de los ejercicios, pero te recomendamos que primero trates de resolverlos por tu cuenta.</p>
+<div class="warning admonition">
+<p class="admonition-title">Advertencia</p>
+<p>En este tutorial usaremos la herramienta <em>GNU grep</em>, que viene instalada por defecto en la mayoría de distribuciones de GNU/Linux. Puede que algunos de los comandos usados con esta herramienta no sean compatibles con otras versiones del programa usadas en MacOS, por lo que les recomendamos instalar <em>GNU grep</em>. En este <a class="reference external" href="https://stackoverflow.com/questions/59232089/how-to-install-gnu-grep-on-mac-os">blog</a> se discute este tema.</p>
+</div>
+<div class="section" id="archivo-para-este-tutorial">
+<h2>Archivo para este tutorial<a class="headerlink" href="#archivo-para-este-tutorial" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En este tutorial usaremos un archivo que tiene la versión completa de la canción <em>Contrapunto para Humano y Computadora</em> de la banda <em>El Cuarteto de Nos</em>.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Pueden encontrar este archivo en este <a class="reference external" href="https://github.com/RSG-Ecuador/HerrComp4Bioinfo/Libro/Contenidos/_archivos/Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt">link</a> dentro del repositorio de GitHub del libro.</p>
+</div>
+</div>
+<div class="section" id="que-es-grep">
+<h2>¿Qué es grep?<a class="headerlink" href="#que-es-grep" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Grep es una herramienta de SOs basados en UNIX, que permite hacer búsquedas de regex en archivos de texto o <a class="reference external" href="https://www.computerhope.com/jargon/s/stdin.htm"><em>entradas estándar - stdin</em></a> derivados de <em>piping</em> (que veremos en detalle en una sección posterior), e imprimir la o las líneas que coincidan con el o los patrones buscados. Un aspecto que se debe considerar es que dado que el caracter de nueva línea <code class="docutils literal notranslate"><span class="pre">\n</span></code> es un separador de la lista de patrones, no hay forma de buscar los caracteres de nueva línea usando grep.</p>
+<p>La sintaxis general de esta herramienta es de la siguiente forma:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep <span class="o">[</span>-opcion<span class="o">(</span>es<span class="o">)</span>...<span class="o">]</span> <span class="o">[</span><span class="s2">&quot;patron(es)&quot;</span>...<span class="o">]</span> <span class="o">[</span>archivo<span class="o">(</span>s<span class="o">)]</span>
+</pre></div>
+</div>
+<p>Pueden existir cero o más opciones y archivos. Si no se provee ningún archivo grep busca en el directorio de trabajo actual si se le da una opción de línea de comandos que especifique la recursividad; de lo contrario, busca en el <a class="reference external" href="https://www.computerhope.com/jargon/s/stdin.htm"><em>(stdin)</em></a>. Además, se deben proveer uno o más patrones que son separados internamente por el programa por caracteres <code class="docutils literal notranslate"><span class="pre">\n</span></code>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>Normalmente, los patrones se ponen entre comillas cuando se usa grep para evitar la interpretación y expansión de los meta-caracteres por la shell.</p>
+</div>
+</div>
+<div class="section" id="diferentes-versiones-de-grep-g-e-f-p">
+<h2>Diferentes versiones de grep: <code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">-E</span> <span class="pre">-F</span> <span class="pre">-P</span></code><a class="headerlink" href="#diferentes-versiones-de-grep-g-e-f-p" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En GNU grep existen cuatro versiones de la herramienta, que se eligen con diferentes opciones:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><strong>Versión</strong></p></th>
+<th class="text-align:center head"><p><strong>Descripción</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-G</span></code> o <code class="docutils literal notranslate"><span class="pre">--basic-regexp</span></code></p></td>
+<td class="text-align:center"><p>Interpreta los patrones como regex básicas (BREs). Es las versión estándar de la herramienta</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-E</span></code> o <code class="docutils literal notranslate"><span class="pre">--extended-regexp</span></code></p></td>
+<td class="text-align:center"><p>Interpreta los patrones como regex extendidas (EREs)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-F</span></code> o <code class="docutils literal notranslate"><span class="pre">--fixed-strings</span></code></p></td>
+<td class="text-align:center"><p>Interpreta los patrones como string fijos, no como regex</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-P</span></code> o <code class="docutils literal notranslate"><span class="pre">--perl-regexp</span></code></p></td>
+<td class="text-align:center"><p>Interpretar los patrones como expresiones regulares compatibles con Perl (PCREs)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>En la implementación GNU grep no hay diferencia funcional entre las sintaxis de expresión regular básica y extendida. La única diferencia es que en las expresiones regulares básicas los meta-caracteres <code class="docutils literal notranslate"><span class="pre">?</span> <span class="pre">+</span> <span class="pre">{</span> <span class="pre">|</span> <span class="pre">()</span></code> se interpretan como caracteres literales y por tanto se deben escapar con <code class="docutils literal notranslate"><span class="pre">\</span></code>.</p>
+</div>
+<p>Por ejemplo, usemos el siguiente comando para buscar las líneas que tengan los caracteres <strong>a</strong> o <strong>e</strong> usando el meta-caracter de alternancia <code class="docutils literal notranslate"><span class="pre">|</span></code> con la versión estándar:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep <span class="s2">&quot;a|e&quot;</span> Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt
+</pre></div>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>Ahora, intenten correr el mismo comando añadiendo la opción <code class="docutils literal notranslate"><span class="pre">-E</span></code>. <strong>¿Cambió la respuesta en comparación con el comando con la versión estándar?</strong></p>
+</div>
+<p>Noten que para que este comando funcione debes estar en el directorio <strong>_files</strong>, o especificar el path completo del archivo desde el directorio en el que se encuentren.</p>
+<p>Para evitar complicaciones, si usamos regex que incluyan patrones con el meta-caracter de alternancia, agrupamiento o cuantificadores, se usa la versión extendida <code class="docutils literal notranslate"><span class="pre">-E</span></code>.</p>
+</div>
+<div class="section" id="opciones-de-la-herramienta-grep">
+<h2>Opciones de la herramienta grep<a class="headerlink" href="#opciones-de-la-herramienta-grep" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="informacion-general-del-programa-version-help">
+<h3>Información general del programa: <code class="docutils literal notranslate"><span class="pre">--version,</span> <span class="pre">--help</span></code><a class="headerlink" href="#informacion-general-del-programa-version-help" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El comando <code class="docutils literal notranslate"><span class="pre">--version</span></code> o <code class="docutils literal notranslate"><span class="pre">-V</span></code> se usa para imprimir en la terminal el número y algunas características de la versión de grep instalada en el SO; mientras que <code class="docutils literal notranslate"><span class="pre">--help</span></code> sirve para imprimir información general del uso y las opciones de grep.</p>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p><strong>¿Cuál versión de grep tienes en tu SO?</strong></p>
+</div>
+</div>
+<div class="section" id="flags-e-f-i-v-w-x">
+<h3>Flags: <code class="docutils literal notranslate"><span class="pre">-e</span> <span class="pre">-f</span> <span class="pre">-i</span> <span class="pre">-v</span> <span class="pre">-w</span> <span class="pre">-x</span></code><a class="headerlink" href="#flags-e-f-i-v-w-x" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En GNU grep existen los siguientes modos para controlar las coincidencias:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><strong>Flag</strong></p></th>
+<th class="text-align:center head"><p><strong>Descripción</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-e</span> <span class="pre">&quot;patron(es)&quot;</span></code> o <code class="docutils literal notranslate"><span class="pre">--regexp=&quot;patron(es)&quot;</span></code></p></td>
+<td class="text-align:center"><p>Busca los patrones especificados como argumento y los caracteres <code class="docutils literal notranslate"><span class="pre">\n</span></code> separan un patrón del siguiente</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-f</span> <span class="pre">archivo</span></code> o <code class="docutils literal notranslate"><span class="pre">--file=archivo</span></code></p></td>
+<td class="text-align:center"><p>Busca los patrones de un archivo, uno por línea</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-i</span></code> o <code class="docutils literal notranslate"><span class="pre">--ignore-case</span></code></p></td>
+<td class="text-align:center"><p>Hace que la regex no sea sensible a mayúsculas o minúsculas. La regex «abc» coincide con el patrón «AbC»</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-v</span></code> o <code class="docutils literal notranslate"><span class="pre">--invert-match</span></code></p></td>
+<td class="text-align:center"><p>Invierte el sentido de coincidencia, para seleccionar líneas que no coinciden con el patrón</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-w</span></code> o <code class="docutils literal notranslate"><span class="pre">--word-regexp</span></code></p></td>
+<td class="text-align:center"><p>Selecciona solo las líneas que contengan coincidencias que formen palabras completas</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-x</span></code> o <code class="docutils literal notranslate"><span class="pre">--line-regexp</span></code></p></td>
+<td class="text-align:center"><p>Seleccione solo los patrones que coincidan exactamente con toda la línea</p></td>
+</tr>
+</tbody>
+</table>
+<p>Entonces, si queremos buscar las líneas del archivo de trabajo que tengan la palabra <strong>computadora</strong> utilizamos el siguiente comando:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep <span class="s2">&quot;computadora&quot;</span> Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt
+</pre></div>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>Si observamos el archivo, vemos que hay ciertas líneas que tienen la palabra <strong>computadora</strong> pero empiezan con C mayúscula. <strong>¿Cómo debemos modificar el comando previo para realizar esta búsqueda?</strong></p>
+<p>Si queremos buscar las líneas que contengan la palabra computadora o Roberto sin importar las mayúsculas o minúsculas, podríamos usar la regex <code class="docutils literal notranslate"><span class="pre">computadora|Roberto</span></code> con la opción <code class="docutils literal notranslate"><span class="pre">-i</span></code> y la versión <code class="docutils literal notranslate"><span class="pre">-E</span></code>, pero otra opción sería usar un archivo con las dos palabras y usar una opción adicional. <strong>¿Cuáles comandos usarías para crear el archivo de patrones por consola y realizar esta búsqueda usando el archivo que creaste?</strong></p>
+<p><strong>¿Coincidieron los resultados de los dos comandos?</strong></p>
+<p>Ahora, busquen las líneas que contengan el patrón <strong>se</strong> con y sin la opción <code class="docutils literal notranslate"><span class="pre">-w</span></code>, <strong>¿Hay diferencia en los resultados con estos comandos?</strong></p>
+<p>Siguiendo el mismo principio, busquen las líneas con el patrón <strong>Ni</strong> con y sin la opción <code class="docutils literal notranslate"><span class="pre">-x</span></code>, <strong>¿Hay diferencia en los resultados con estos comandos?</strong></p>
+<p>Y, <strong>¿Cómo hacemos para buscar las líneas que no tengan los patrones <code class="docutils literal notranslate"><span class="pre">computadora</span></code> o <code class="docutils literal notranslate"><span class="pre">Roberto</span></code> sin importar las mayúsculas o minúsculas?</strong></p>
+</div>
+</div>
+<div class="section" id="control-general-de-salida-c-color-l-l-m-o-q-s">
+<h3>Control general de salida: <code class="docutils literal notranslate"><span class="pre">-c</span> <span class="pre">--color</span> <span class="pre">-L</span> <span class="pre">-l</span> <span class="pre">-m</span> <span class="pre">-o</span> <span class="pre">-q</span> <span class="pre">-s</span></code><a class="headerlink" href="#control-general-de-salida-c-color-l-l-m-o-q-s" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Se tienen las siguientes opciones para controlar la salida de forma general:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><strong>Opción</strong></p></th>
+<th class="text-align:center head"><p><strong>Descripción</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-c</span></code> o <code class="docutils literal notranslate"><span class="pre">--count</span></code></p></td>
+<td class="text-align:center"><p>Se imprime el número de líneas que coinciden con un patrón para cada archivo de entrada. Con la opción <code class="docutils literal notranslate"><span class="pre">-v</span></code> se cuentan las líneas que no coinciden</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">--color</span></code></p></td>
+<td class="text-align:center"><p>Se colorean los patrones, líneas coincidentes o de contexto, nombres de archivo, y números de línea</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-L</span></code> o <code class="docutils literal notranslate"><span class="pre">--files-without-match</span></code></p></td>
+<td class="text-align:center"><p>Se imprime el nombre de los archivos de entrada que no coinciden con el patrón de búsqueda</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-l</span></code> o <code class="docutils literal notranslate"><span class="pre">--files-with-matches</span></code></p></td>
+<td class="text-align:center"><p>Se imprime el nombre de los archivos de entrada que coinciden con el patrón de búsqueda</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-m</span> <span class="pre">num</span></code> o <code class="docutils literal notranslate"><span class="pre">--max-count=num</span></code></p></td>
+<td class="text-align:center"><p>La búsqueda del patrón se detiene luego de que se cumpla con el número de coincidencias especificadas en num</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-o</span></code> o <code class="docutils literal notranslate"><span class="pre">--only-matching</span></code></p></td>
+<td class="text-align:center"><p>Se imprime solo las partes coincidentes con el patrón de búsqueda de las líneas, con cada parte separada por una nueva línea</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-q</span></code> o <code class="docutils literal notranslate"><span class="pre">--quiet</span></code></p></td>
+<td class="text-align:center"><p>No se imprime nada en la terminal</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-s</span></code> o <code class="docutils literal notranslate"><span class="pre">--no-messages</span></code></p></td>
+<td class="text-align:center"><p>Suprimir los mensajes de error de los resultados que se imprimen en la terminal</p></td>
+</tr>
+</tbody>
+</table>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>Ahora, considerando estos conocimientos y lo que hemos aprendido previamente sobre regex, <strong>¿Qué comando podemos usar para verificar el número de versos de la canción, incluyendo la discusión final entre Roberto y la computadora como otro verso?</strong></p>
+<p><strong>¿Cuál(es) comandos usarías para determinar el número de versos de la computadora, Roberto y de ambos?</strong></p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>Por defecto, la mayoría de versiones de <em>GNU grep</em> tienen establecido el color del resultado de las coincidencias del comando con rojo y fondo negro, pero esto se puede cambiar usando la variable de ambiente <strong>GREP_COLORS</strong>. Pueden encontrar más información sobre este tema en el siguiente <a class="reference external" href="https://askubuntu.com/questions/1042234/modifying-the-color-of-grep">blog</a>.</p>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>Utilizando la opción <code class="docutils literal notranslate"><span class="pre">-m</span></code> de 4, <strong>¿Cuál es la última línea que se imprime buscando el patrón <code class="docutils literal notranslate"><span class="pre">?</span></code> ?</strong></p>
+</div>
+<p>El uso de las opciones <code class="docutils literal notranslate"><span class="pre">-l</span></code>y <code class="docutils literal notranslate"><span class="pre">-L</span></code> lo veremos más adelante en este tutorial, y les pedimos que prueben el funcionamiento de las opciones <code class="docutils literal notranslate"><span class="pre">-o</span></code>, <code class="docutils literal notranslate"><span class="pre">-q</span></code> y <code class="docutils literal notranslate"><span class="pre">s</span></code> por su cuenta.</p>
+</div>
+<div class="section" id="control-de-prefijo-de-linea-de-salida-h-h-n-t">
+<h3>Control de prefijo de línea de salida : <code class="docutils literal notranslate"><span class="pre">-H</span> <span class="pre">-h</span> <span class="pre">-n</span> <span class="pre">-T</span></code><a class="headerlink" href="#control-de-prefijo-de-linea-de-salida-h-h-n-t" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Para controlar el prefijo de línea se tienen las siguientes opciones:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><strong>Opción</strong></p></th>
+<th class="text-align:center head"><p><strong>Descripción</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-H</span></code> o <code class="docutils literal notranslate"><span class="pre">--with-filename</span></code></p></td>
+<td class="text-align:center"><p>Imprime el nombre de archivo por cada coincidencia. Este es el valor predeterminado cuando hay más de un archivo para buscar</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-h</span></code> o <code class="docutils literal notranslate"><span class="pre">--no-filename</span></code></p></td>
+<td class="text-align:center"><p>Suprima el prefijo de los nombres de archivo. Este es el valor predeterminado cuando solo hay un archivo para buscar</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-n</span></code> o <code class="docutils literal notranslate"><span class="pre">--line-number</span></code></p></td>
+<td class="text-align:center"><p>Imprime el número de línea de cada coincidencia antes del patrón</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-T</span></code> o <code class="docutils literal notranslate"><span class="pre">--initial-tab</span></code></p></td>
+<td class="text-align:center"><p>Se verifica de que el primer carácter del contenido de la línea tiene en una tabulación</p></td>
+</tr>
+</tbody>
+</table>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>Ahora, si queremos conocer el número de línea de todas las líneas que terminen en una palabra con los sufijos <code class="docutils literal notranslate"><span class="pre">ando</span></code>, <code class="docutils literal notranslate"><span class="pre">ión</span></code>, u <code class="docutils literal notranslate"><span class="pre">ono</span></code>; <strong>¿Qué comando podría usar que cumpla con este criterio de búsqueda?</strong></p>
+<p><strong>¿Cuántas líneas hay con palabras que terminen con cada uno de estos sufijos</strong>. Prueba el mismo comando con la opción <code class="docutils literal notranslate"><span class="pre">-T</span></code>,</p>
+<p><strong>¿Hay alguna diferencia con lo que obtuviste previamente?</strong></p>
+</div>
+<p>El uso de las opciones <code class="docutils literal notranslate"><span class="pre">-h</span></code>y <code class="docutils literal notranslate"><span class="pre">-H</span></code> lo veremos más adelante en este tutorial.</p>
+</div>
+<div class="section" id="control-de-contexto-de-linea-a-b-c">
+<h3>Control de contexto de línea: <code class="docutils literal notranslate"><span class="pre">-A</span> <span class="pre">-B</span> <span class="pre">-C</span></code><a class="headerlink" href="#control-de-contexto-de-linea-a-b-c" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Se puede controlar la impresión del contexto de línea con las siguientes alternativas:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><strong>Opción</strong></p></th>
+<th class="text-align:center head"><p><strong>Descripción</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-A</span> <span class="pre">num</span></code> o <code class="docutils literal notranslate"><span class="pre">--after-context=num</span></code></p></td>
+<td class="text-align:center"><p>Imprime el número de líneas que se ubican después de las coincidencias con el patrón de búsqueda</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-B</span> <span class="pre">num</span></code> o <code class="docutils literal notranslate"><span class="pre">--before-context=num</span></code></p></td>
+<td class="text-align:center"><p>Imprime el número de líneas que se ubican antes de las coincidencias con el patrón de búsqueda</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-C</span> <span class="pre">num</span></code> o <code class="docutils literal notranslate"><span class="pre">--context=num</span></code></p></td>
+<td class="text-align:center"><p>Imprime el número de líneas que se ubican antes y después de las coincidencias con el patrón de búsqueda</p></td>
+</tr>
+</tbody>
+</table>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>Utilizando las opciones de contexto de línea, determina los límites de los versos <strong>3, 5, 10, y 12</strong>, <strong>¿Cuántas líneas componen a cada uno de estos versos omitiendo su título correspondiente?</strong>.</p>
+<p>Aisla estos cuatro versos (incluyendo su título) en archivos separados con nombre <code class="docutils literal notranslate"><span class="pre">verso#.txt</span></code> solamente usando la terminal, siendo <code class="docutils literal notranslate"><span class="pre">#</span></code> el número del verso respectivo, y ubícalos en el directorio <em>archivos</em> <strong>¿Cuál es un ejemplo de uno de los comandos que usaste para esta tarea?</strong></p>
+</div>
+</div>
+<div class="section" id="seleccion-de-archivos-o-directorios-r-exclude-glob-include-glob">
+<h3>Selección de archivos o directorios: <code class="docutils literal notranslate"><span class="pre">-r</span> <span class="pre">--exclude=glob</span> <span class="pre">--include=glob</span></code><a class="headerlink" href="#seleccion-de-archivos-o-directorios-r-exclude-glob-include-glob" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Las opciones de selección de archivos o directorios más comunes son:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><strong>Opción</strong></p></th>
+<th class="text-align:center head"><p><strong>Descripción</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-r</span></code> o <code class="docutils literal notranslate"><span class="pre">--recursive</span></code></p></td>
+<td class="text-align:center"><p>Para cada operación que se aplique al directorio, lea y procese todos los archivos en ese directorio, de forma recursiva</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">--exclude=glob</span></code></p></td>
+<td class="text-align:center"><p>Omitir cualquier archivo de línea de comandos con un sufijo de nombre que coincida con el patrón global, utilizando coincidencias con <em>wildcards</em></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">--include=glob</span></code></p></td>
+<td class="text-align:center"><p>Buscar solo archivos de línea de comandos con un sufijo de nombre que coincida con el patrón global, utilizando coincidencias con <em>wildcards</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>Ahora, si queremos verificar cuáles documentos del directorio <em>archivos</em> tienen una línea que contenga la palabra <strong>computadora</strong>, sin importar las mayúsculas y minúsculas, podemos utilizar las opciones <code class="docutils literal notranslate"><span class="pre">-r</span></code> y <code class="docutils literal notranslate"><span class="pre">-l</span></code>. <strong>¿Cuáles archivos cumplen con esta condición?</strong>.</p>
+<p>Si en lugar de la opción <code class="docutils literal notranslate"><span class="pre">-l</span></code> usas <code class="docutils literal notranslate"><span class="pre">-L</span></code>, <strong>¿Qué archivos aparecen ahora?</strong>.</p>
+<p>Prueba el mismo comando con las opciones <code class="docutils literal notranslate"><span class="pre">-H</span></code> y <code class="docutils literal notranslate"><span class="pre">-h</span></code>, <strong>¿Cuáles fueron las diferencias con los resultados previos?</strong></p>
+</div>
+</div>
+</div>
+<div class="section" id="material-suplementario">
+<h2>Material suplementario<a class="headerlink" href="#material-suplementario" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La mayoría de los contenidos de esta parte se obtuvieron de la documentación oficial de <em>GNU</em>, que pueden acceder con el siguiente <a class="reference external" href="https://www.gnu.org/software/grep/manual/grep.html">link</a>. En los siguientes enlaces pueden encontrar información adicional sobre este tema:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://linuxize.com/post/regular-expressions-in-grep/">https://linuxize.com/post/regular-expressions-in-grep/</a></p></li>
+<li><p><a class="reference external" href="https://www.computerhope.com/unix/ugrep.htm">https://www.computerhope.com/unix/ugrep.htm</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contenido/04_Procesamiento_ficheros_regex_pipes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="3_Expresiones_regulares.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title">Expresiones regulares (<em>regex</em>)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="5_Sed.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Sed</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por comunidad HerrCompBioinfo<br/>
+    
+        &copy; Derechos de autor 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

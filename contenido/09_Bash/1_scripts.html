@@ -1,0 +1,947 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scripts en Bash &#8212; HerrCompBioinfo</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://rsg-ecuador.github.io/HerrComp4Bioinfo/contenido/09_Bash/1_scripts.html" />
+    <link rel="shortcut icon" href="../../_static/favicon-32x32.png"/>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="Lógica, condicionales y arreglos" href="2_condicionales_arreglos.html" />
+    <link rel="prev" title="Resumen" href="0_Resumen.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">HerrCompBioinfo</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Bienvenida.html">
+   Bienvenido/a
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introducción a Unix y GNU/Linux
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/1_Conceptos_Unix_GNU_Linux.html">
+   Conceptos de Unix y GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/2_Shell_bash_emulador_terminal.html">
+   Shell, Bash, emulador de terminal, y otras definiciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/3_Formas_instalacion_emulador_terminal_Bash.html">
+   Formas de instalar un emulador de terminal de Bash
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Jupyter Notebooks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/1_terminal_primera.html">
+   Organización de archivos en este libro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/2_anaconda.html">
+   Instalación de Anaconda, Jupyter Lab y Kernel de Bash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/3_notebooks.html">
+   Creación de Jupyter Notebooks
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Manejo de Terminal
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/1_terminal.html">
+   Terminal: Interacción con la Shell en Linux, MacOS y Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/2_comandos.html">
+   Comandos en la shell
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/3_directorios.html">
+   Directorios y archivos en UNIX: Parte 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/4_wildcards.html">
+   Wildcards y Streams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/5_directorios_2.html">
+   Directorios y archivos en UNIX: Parte 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/6_variables_amb.html">
+   Variables de ambiente
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Procesamiento de ficheros, regex y pipes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/1_Archivos_formatos_comunes_Bioinformatica.html">
+   Archivos y formatos comunes en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/2_Editores_de_texto.html">
+   Editores de texto
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/3_Expresiones_regulares.html">
+   Expresiones regulares (
+   <em>
+    regex
+   </em>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/4_Grep.html">
+   Grep
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/5_Sed.html">
+   Sed
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/6_Cut_sort.html">
+   Cut, sort
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/7_Pipes.html">
+   Pipes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/8_Respuestas_ejercicios.html">
+   Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ejercicios para procesamiento ficheros en bioinformática
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/1_Preprocesamiento_pdb.html">
+   Pre-procesamiento de archivo PDB antes de realizar dinámica molecular
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/2_Motivos_fasta.html">
+   Búsqueda de motivos en archivo fasta de una secuencia de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/3_Info_multifasta_genomas.html">
+   Extracción de información de archivo multifasta de genomas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/4_Info_multifasta_proteoma.html">
+   Extracción de información de archivo multi-fasta de secuencias de aminoácidos (proteoma)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/5_Info_fastq.html">
+   Extracción de información de archivos fastq
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/6_Info_microarray.html">
+   Extracción de información de archivo de experimento de microarray
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/7_Sitios_restric.html">
+   Búsqueda de sitios de restricción en archivos fasta de secuencias de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/8_Respuestas_ejercicios.html">
+   Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Make
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/1_Make.html">
+   Make
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  SAMTools
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/1_inst.html">
+   Instalación de herramientas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/2_dwnl.html">
+   Descarga de secuencias
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/3_impl.html">
+   Implementación
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  AWK
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_AWK/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_AWK/1_Conceptos_generales_variables_internas_awk.html">
+   Conceptos generales, instalación y variables internas AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_AWK/2_Estructura_programas_sintax_awk.html">
+   Estructura de scripts y sintaxis AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_AWK/3_Ejemplos_awk.html">
+   Ejemplos generales y con enfoque en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_AWK/4_Respuestas_ejercicios.html">
+   Respuestas ejercicios deber AWK
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bash
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Scripts en Bash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_condicionales_arreglos.html">
+   Lógica, condicionales y arreglos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_bucles.html">
+   Bucles for y while
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_funciones.html">
+   Funciones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Git y GitHub
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_Git_GitHub/0_Resumen.html">
+   Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_Git_GitHub/1_Git.html">
+   Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_Git_GitHub/2_GitHub.html">
+   GitHub
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Visita nuestro <a href="https://github.com/RSG-Ecuador/HerrComp4Bioinfo">repositorio de GitHub</a> <div>Este libro fue desarrollado con <a href="https://jupyterbook.org">Jupyter Book</a></div>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/contenido/09_Bash/1_scripts.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/RSG-Ecuador/HerrComp4Bioinfo"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/RSG-Ecuador/HerrComp4Bioinfo/issues/new?title=Issue%20on%20page%20%2Fcontenido/09_Bash/1_scripts.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        <a class="edit-button" href="https://github.com/RSG-Ecuador/HerrComp4Bioinfo/edit/source/Libro/Contenidos/contenido/09_Bash/1_scripts.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edita esta página"><i class="fas fa-pencil-alt"></i>sugerir editar</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#primer-programa-algebra">
+   Primer programa: Álgebra
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#segundo-programa-variables">
+   Segundo programa: Variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tercer-programa-ingresar-datos-desde-teclado">
+   Tercer programa: Ingresar datos desde teclado
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-tiene-que-ver-todo-esto-con-bioinformatica">
+   ¿Qué tiene que ver todo esto con bioinformática?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tabla-de-comandos-frecuentes">
+   Tabla de comandos frecuentes
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Scripts en Bash</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#primer-programa-algebra">
+   Primer programa: Álgebra
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#segundo-programa-variables">
+   Segundo programa: Variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tercer-programa-ingresar-datos-desde-teclado">
+   Tercer programa: Ingresar datos desde teclado
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-tiene-que-ver-todo-esto-con-bioinformatica">
+   ¿Qué tiene que ver todo esto con bioinformática?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tabla-de-comandos-frecuentes">
+   Tabla de comandos frecuentes
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="scripts-en-bash">
+<h1>Scripts en Bash<a class="headerlink" href="#scripts-en-bash" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="figure align-default" id="logo-bash">
+<a class="reference internal image-reference" href="../../_images/bash.png"><img alt="Logo de Bash" src="../../_images/bash.png" style="width: 350px;" /></a>
+<p class="caption"><span class="caption-number">Figura 12 </span><span class="caption-text">Logo de Bash. Imagen utilizada bajo la <a class="reference external" href="https://artlibre.org/licence/lal/en/">Licencia Arte Libre</a>. <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Gnu-bash-logo.svg">https://commons.wikimedia.org/wiki/File:Gnu-bash-logo.svg</a></span><a class="headerlink" href="#logo-bash" title="Enlace permanente a esta imagen">¶</a></p>
+</div>
+<p>Los <code class="docutils literal notranslate"><span class="pre">scripts</span></code> son archivos de texto que contienen instrucciones ejecutables por un intérprete de un lenguaje de programación para la ejecución de tareas. El formato <code class="docutils literal notranslate"><span class="pre">.sh</span></code> se utiliza para escribir <code class="docutils literal notranslate"><span class="pre">scripts</span> <span class="pre">ejecutables</span></code> por un intérprete como Bash. En esta sección crearemos varios scripts de Bash y usaremos varios comandos y operadores.</p>
+<p>Primero, es necesario crear una carpeta para trabajar. Si recuerdas la sección <a class="reference internal" href="../02_JupyterLab/1_terminal_primera.html"><span class="doc std std-doc">Jupyter Lab</span></a>, tenemos ya el directorio <code class="docutils literal notranslate"><span class="pre">~/taller_unix</span></code>. Podemos crear una carpeta nueva (si ya no la creaste antes):</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mkdir ~/taller_unix/9_bash
+$ <span class="nb">cd</span> ~/taller_unix/9_bash
+</pre></div>
+</div>
+<div class="section" id="primer-programa-algebra">
+<h2>Primer programa: Álgebra<a class="headerlink" href="#primer-programa-algebra" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Vamos a crear un archivo de formato <code class="docutils literal notranslate"><span class="pre">.sh</span></code> llamado <strong><a class="reference external" href="http://algebra.sh">algebra.sh</a></strong>, usando el comando <code class="docutils literal notranslate"><span class="pre">touch</span></code>. Luego colocamos el contenido que se encuentra debajo con Vim, nano, Jupyter Lab o el editor de texto que prefieras. La primera línea contiene una combinación de los caracteres <code class="docutils literal notranslate"><span class="pre">#!</span></code>, llamados <em>shebang</em>, y el directorio del intérprete de Bash <em>/bin/bash</em> (compruébalo con el comando <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">bash</span></code>). Shebang es una convención para scripts de la shell que permite ubicar al intérprete en la computadora al momento de ejecutarlo. El caracter <code class="docutils literal notranslate"><span class="pre">#</span></code> permite comentar una línea en el script. Es un comentario porque el intérprete ignora la línea que empieza por <code class="docutils literal notranslate"><span class="pre">#</span></code> (no por <code class="docutils literal notranslate"><span class="pre">#!</span></code>).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># File: algebra.sh</span>
+
+expr <span class="m">4</span> + <span class="m">3</span>
+expr <span class="m">4</span> - <span class="m">3</span>
+expr <span class="m">4</span> <span class="se">\*</span> <span class="m">3</span>
+expr <span class="m">4</span> / <span class="m">3</span>
+</pre></div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Recuerda que solamente las líneas de texto que empiezan con <code class="docutils literal notranslate"><span class="pre">$</span></code> deben usarse directamente en Terminal. El bloque de código anterior debes escribirlo en el archivo <code class="docutils literal notranslate"><span class="pre">algebra.sh</span></code> que acabas de crear.</p>
+</div>
+<p>Si usamos el comando <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-la</span></code> se puede ver toda la información de los archivos en la carpeta actual. Yo usó el comando <code class="docutils literal notranslate"><span class="pre">l</span></code> porque es una configuración personal. Puedes ver que <code class="docutils literal notranslate"><span class="pre">algebra.sh</span></code> posee la descripción <strong>-rw-r–r–</strong>. Esto significa que el sistema operativo ha otorgado permisos para que el archivo solamente se escriba y se lea.</p>
+<a class="reference internal image-reference" href="../../_images/b1.png"><img alt="./img/b1.png" class="align-center" src="../../_images/b1.png" style="width: 650px;" /></a>
+<p>Lo que queremos es ejecutar este archivo, pero no será posible sin modificar los permisos. Es posible hacer esto con el comando <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span></code> (que aprendimos antes), donde <code class="docutils literal notranslate"><span class="pre">x</span></code> significa <em>ejecutable</em>. Verás que la descripción cambia a <strong>-rwxr-xr-x</strong>. Es posible que también veas que el archivo cambia de color, de blanco a rojo. Esto hace posible usar <code class="docutils literal notranslate"><span class="pre">algebra.sh</span></code> como un archivo ejecutable, como se ve en la imagen a continuación. Los archivos ejecutables son scripts autorizados por el sistema operativo para correr los comandos escritos en ellos.</p>
+<a class="reference internal image-reference" href="../../_images/b2.png"><img alt="./img/b2.png" class="align-center" src="../../_images/b2.png" style="width: 650px;" /></a>
+<p>Ahora, para ejecutar el script debemos llamarlo con <code class="docutils literal notranslate"><span class="pre">./algebra.sh</span></code>.</p>
+<a class="reference internal image-reference" href="../../_images/b3.png"><img alt="./img/b3.png" class="align-center" src="../../_images/b3.png" style="width: 500px;" /></a>
+<div class="hint admonition">
+<p class="admonition-title">Deber</p>
+<p>Crea el script, modifica sus permisos y córrelo como se indica.</p>
+</div>
+<p>Esta convención puede ser reemplazada. Si no deseas cambiar los permisos del archivo, puedes llamar directamente al intérprete y como argumento colocar el nombre o directorio del archivo. Así, no es necesario incluir la línea del shebang ni usar <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span></code>, y si la incluyes no importa tampoco. Para hacer esto, borra el ejecutable y reescribe el código previo. Luego, ejecuta el comando:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ bash algebra.sh
+</pre></div>
+</div>
+<p>Vemos cómo claramente la expresión <code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">/</span> <span class="pre">3</span></code> devuelve el valor 1, cuando sabemos que equivale al número <code class="docutils literal notranslate"><span class="pre">1.333333...</span></code>. Esto ocurre porque la división entera aproxima el resultado:</p>
+<div class="math notranslate nohighlight">
+\[\frac{4}{3} \sim 1\]</div>
+<p>A veces retornará resultados extraños, pero ahora ya sabemos que solo está aproximando. Solamente cuando la división es perfecta, retorna el resultado completo:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ expr <span class="m">1</span> / <span class="m">10</span>
+$ expr <span class="m">10</span> / <span class="m">4</span>
+$ expr <span class="m">10</span> / <span class="m">2</span>
+</pre></div>
+</div>
+<p>Si usamos el operador de residuo <code class="docutils literal notranslate"><span class="pre">%</span></code> vemos cuánto nos queda de remanente al dividir una fracción irracional:</p>
+<a class="reference internal image-reference" href="../../_images/remainder.png"><img alt="./img/remainder.png" class="align-center" src="../../_images/remainder.png" style="width: 250px;" /></a>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>expr <span class="m">487</span> % <span class="m">32</span>
+expr <span class="m">1</span> % <span class="m">10</span>
+expr <span class="m">10</span> % <span class="m">4</span>
+expr <span class="m">10</span> % <span class="m">5</span>
+</pre></div>
+</div>
+<p>Esto es un poco restrictivo ya que habrá ocasiones donde necesitemos utilizar todos los decimales posibles de una división. Para esto podemos exportar un string con una operación algebraica al programa bench calculator <code class="docutils literal notranslate"><span class="pre">bc</span></code> con un pipe. Creemos un archivo <code class="docutils literal notranslate"><span class="pre">pi.sh</span></code> con el siguiente contenido:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># File: pi.sh</span>
+
+<span class="c1"># aproximación de pi</span>
+<span class="nb">echo</span> <span class="s2">&quot;scale=7; 355 / 113&quot;</span> <span class="p">|</span> bc -l
+<span class="nb">echo</span> <span class="s2">&quot;4 ^ 2&quot;</span> <span class="p">|</span> bc -l
+<span class="nb">echo</span> <span class="s2">&quot;scale=2; sqrt(4)&quot;</span> <span class="p">|</span> bc -l
+<span class="nb">echo</span> <span class="s2">&quot;scale=3; (1.23 / 0.32) + (5 * 2)&quot;</span> <span class="p">|</span> bc -l
+</pre></div>
+</div>
+<p>Ahora, corremos el script con <code class="docutils literal notranslate"><span class="pre">bash</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>bash pi.sh
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/b4.png"><img alt="./img/b4.png" class="align-center" src="../../_images/b4.png" style="width: 500px;" /></a>
+<p>Es posible darle precisión a los números de output después de usar <code class="docutils literal notranslate"><span class="pre">bc</span></code> con el comando <code class="docutils literal notranslate"><span class="pre">scale</span></code> en el string después de <code class="docutils literal notranslate"><span class="pre">echo</span></code>.</p>
+<div class="hint admonition">
+<p class="admonition-title">Deber</p>
+<p>Crea el script y córrelo.</p>
+</div>
+</div>
+<div class="section" id="segundo-programa-variables">
+<h2>Segundo programa: Variables<a class="headerlink" href="#segundo-programa-variables" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Es importante guardar datos en la memoria del computador mientras ejecutamos un script, porque queremos usar varias veces un mismo valor, por ejemplo. Para ello usamos <code class="docutils literal notranslate"><span class="pre">variables</span></code>. Las variables son <em>strings</em>, o nombres simbólicos, que representan un conjunto de datos guardados en la memoria de la computadora. A veces las variables pueden cambiar su data inicial. Esto permite usar la data bajo el nombre de una variable independientemente de su estado.  Hay cinco reglas que seguir para <strong>declarar variables</strong> en Bash:</p>
+<ol class="simple">
+<li><p>El nombre de la variable debe estar en minúsculas</p></li>
+<li><p>La variable empieza con una letra, no un número</p></li>
+<li><p>Solo debe contener caracteres alfanuméricos y guiones bajos.</p></li>
+<li><p>Es útil separar las palabras por guiones bajos.</p></li>
+<li><p>Los valores que se asignen a las variables y los nombres de las variables siempre deben estar pegados al operador <code class="docutils literal notranslate"><span class="pre">=</span></code> se asignación.</p></li>
+</ol>
+<p>Vamos a crear una variable para guardar el capítulo del libro. Luego, para imprimir el contenido de la variable usamos el operador <code class="docutils literal notranslate"><span class="pre">$</span></code></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">unidad</span><span class="o">=</span><span class="m">9</span>
+$ <span class="nb">echo</span> <span class="nv">$unidad</span>
+</pre></div>
+</div>
+<p>Podemos modificar la variable utilizando el operador de asignación. ¡Hay que tener cuidado! Es posible que actualicemos el valor de la variable inicial y ya no tenga el mismo significado que antes. Es decir, una variable puede ser de varios tipos: número entero, número float, string, caracter, etc. Accidentalmente podemos intercambiar los tipos de variables y luego el programa ya no sirve. Por ejemplo:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">unidad</span><span class="o">=</span><span class="s2">&quot;ahora es un string&quot;</span>
+$ <span class="nb">echo</span> <span class="nv">$unidad</span>
+$ <span class="nv">unidad</span><span class="o">=</span><span class="s2">&quot;volvamos a ser un entero&quot;</span>
+$ <span class="nb">echo</span> <span class="nv">$unidad</span>
+$ <span class="nv">unidad</span><span class="o">=</span><span class="m">9</span>
+$ <span class="nb">echo</span> <span class="nv">$unidad</span>
+$ <span class="nb">echo</span> <span class="s2">&quot;mejor :)&quot;</span>
+</pre></div>
+</div>
+<p>Si usamos expresiones algebraicas al momento de actualizar una variable podemos usar el comando <code class="docutils literal notranslate"><span class="pre">let</span></code>. Además podemos imprimir variables en un string si usamos el operador <code class="docutils literal notranslate"><span class="pre">$</span></code> antes de la variable que queremos imprimir.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">a</span><span class="o">=</span><span class="m">1</span>
+$ <span class="nv">b</span><span class="o">=</span><span class="m">41</span>
+$ <span class="nv">c</span><span class="o">=</span><span class="m">0</span>
+$ <span class="nb">let</span> <span class="nv">c</span><span class="o">=</span>a-b
+$ <span class="nb">echo</span> <span class="s2">&quot;La variable c almacena el valor </span><span class="nv">$c</span><span class="s2">.&quot;</span>
+</pre></div>
+</div>
+<p>Ahora podemos usar el comando <code class="docutils literal notranslate"><span class="pre">$()</span></code> y guardar el resultado en una variable. Por ejemplo, vamos a guardar el número de líneas con código en el archivo <code class="docutils literal notranslate"><span class="pre">pi.sh</span></code></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">lines</span><span class="o">=</span><span class="k">$(</span>cat ./pi.sh <span class="p">|</span> wc -l<span class="k">)</span>
+$ <span class="nb">echo</span> <span class="nv">$lines</span>
+</pre></div>
+</div>
+<p>Hay variables especiales de Bash que podemos usar para <strong>pasar argumentos al script cuando lo corremos</strong>, es decir, le damos variables al script para que las procese de una manera en especial. Primero creemos un archivo <code class="docutils literal notranslate"><span class="pre">.sh</span></code> llamado <code class="docutils literal notranslate"><span class="pre">vars</span></code> con el siguiente contenido:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!bin/bash</span>
+<span class="c1"># File: vars.sh</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Argumentos del script: </span><span class="nv">$@</span><span class="s2">&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;Primer argumento: </span><span class="nv">$1</span><span class="s2">. Segundo argumento: </span><span class="nv">$2</span><span class="s2">.&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;Numero de argumentos: </span><span class="nv">$#</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ bash vars.sh
+$ bash vars.sh amo
+$ bash vars.sh la programacion
+</pre></div>
+</div>
+<p>¿Y qué pasa si ingresamos más argumentos de los que teníamos planeados?</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ bash vars.sh red blue green
+</pre></div>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Deber</p>
+<p>Crea el script y córrelo las cuatro veces.</p>
+</div>
+</div>
+<div class="section" id="tercer-programa-ingresar-datos-desde-teclado">
+<h2>Tercer programa: Ingresar datos desde teclado<a class="headerlink" href="#tercer-programa-ingresar-datos-desde-teclado" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Es posible hacer un script de Bash que interactúe con un usuario y le permita ingresar un string desde el teclado y guardarlo como variable. La meta es que el script haga algo con esa variable. Para ello usamos el comando <code class="docutils literal notranslate"><span class="pre">read</span></code> antes del nombre de una variable nueva que vamos a usar. Por ejemplo, creemos un archivo llamado <code class="docutils literal notranslate"><span class="pre">input.sh</span></code> y coloquemos el siguiente código:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># File: input.sh</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Quieres continuar? (y/n): &quot;</span>
+<span class="nb">read</span> response
+<span class="nb">echo</span> <span class="s2">&quot;Ok, seleccionaste: </span><span class="nv">$response</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ bash input.sh
+</pre></div>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Deber</p>
+<p>Crea el script y córrelo.</p>
+</div>
+</div>
+<div class="section" id="que-tiene-que-ver-todo-esto-con-bioinformatica">
+<h2>¿Qué tiene que ver todo esto con bioinformática?<a class="headerlink" href="#que-tiene-que-ver-todo-esto-con-bioinformatica" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Todo. ¡Podemos automatizar procesamiento de datos en bash utilizando todo lo que hemos aprendido antes! Veamos un ejemplo con un ejercicio previo del capítulo sobre <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/5_Info_fastq.html"><span class="doc std std-doc">ejercicios de procesamiento de ficheros</span></a>. Colocaremos varias de las instrucciones de ese ejercicio en un archivo llamado <code class="docutils literal notranslate"><span class="pre">demo.sh</span></code>. Luego, lo correremos en la Terminal para ver el resultado. Este script hará el siguiente procesamiento:</p>
+<ol class="simple">
+<li><p>Tomará como input el nombre del archivo <code class="docutils literal notranslate"><span class="pre">./_archivos/secuencias_bash.fastq</span></code> de secuencias fastq para analizar.</p></li>
+<li><p>Buscará dentro del archivo provisto por el usuario las secuencias con el string &#64;SRR098026 y las contará.</p></li>
+<li><p>Exportará las malas secuencias a un archivo llamado <code class="docutils literal notranslate"><span class="pre">malas_lecturas.fastq</span></code>, usando el string «NNNNNNNNNN» como plantilla.</p></li>
+<li><p>Reportará el número de malas secuencias.</p></li>
+<li><p>Luego buscaremos patrones en el archivo <code class="docutils literal notranslate"><span class="pre">buenas_lecturas.fastq</span></code>, si es que el usuario lo desea.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># File: demo.sh</span>
+
+<span class="c1"># Input de archivo</span>
+<span class="nb">echo</span> <span class="s2">&quot;Archivo a procesar &gt; </span><span class="nv">$@</span><span class="s2">&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;Numero de argumentos: </span><span class="nv">$#</span><span class="s2">&quot;</span>
+
+<span class="c1"># Conteo de secuencias, separación de malas secuencias</span>
+<span class="nv">numero_secuencias</span><span class="o">=</span><span class="k">$(</span>grep -c <span class="s1">&#39;^@SRR098026&#39;</span> <span class="nv">$@</span><span class="k">)</span>
+grep -B1 -A2 NNNNNNNNNN <span class="nv">$@</span> &gt; malas_lecturas.fastq
+<span class="nv">malas</span><span class="o">=</span><span class="k">$(</span>cat malas_lecturas.fastq <span class="p">|</span> wc -l<span class="k">)</span>
+<span class="nb">echo</span> <span class="s2">&quot;Número de malas lecturas: </span><span class="nv">$malas</span><span class="s2">&quot;</span>
+
+<span class="c1"># Búsqueda de patrones</span>
+<span class="nb">echo</span> <span class="s2">&quot;Desea buscar patrones (y/n): &quot;</span>
+<span class="nb">read</span> d
+
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$d</span> <span class="o">==</span> <span class="s2">&quot;y&quot;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Los patrones se guardarán en: patrones.txt&quot;</span>
+    <span class="nb">echo</span> -e <span class="s1">&#39;ACTG\nCCCCC\nNNNCNNN\nNNNGNNN\nTTTT\nTATA\nAAA&#39;</span> &gt; patrones.txt
+    grep -f patrones.txt <span class="nv">$@</span> &gt; busqueda.txt
+    <span class="nb">echo</span> <span class="s2">&quot;Búsqueda de patrones guardada en: busqueda.txt&quot;</span>
+<span class="k">else</span>
+    <span class="nb">echo</span> <span class="s2">&quot;ok :P&quot;</span>
+<span class="k">fi</span>
+
+<span class="c1"># Mensaje final</span>
+<span class="nb">echo</span> <span class="s2">&quot;Fin :)&quot;</span>
+</pre></div>
+</div>
+<p>Deberías correr el script así, una vez que hayas descargado el archivo <code class="docutils literal notranslate"><span class="pre">secuencias_bash.fastq</span></code> y lo hayas colocado en <code class="docutils literal notranslate"><span class="pre">~/taller_unix/9_bash</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ bash demo.sh secuencias_bash.fastq
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/b5.png"><img alt="./img/b5.png" class="align-center" src="../../_images/b5.png" style="width: 650px;" /></a>
+<div class="hint admonition">
+<p class="admonition-title">Deber</p>
+<p>Vas a notar que este script posee el nuevo comando <code class="docutils literal notranslate"><span class="pre">if</span></code>. Lo veremos en la próxima sección. Por ahora, crea el script y córrelo.</p>
+</div>
+</div>
+<div class="section" id="tabla-de-comandos-frecuentes">
+<h2>Tabla de comandos frecuentes<a class="headerlink" href="#tabla-de-comandos-frecuentes" title="Enlazar permanentemente con este título">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Comando</strong></p></th>
+<th class="head"><p><strong>Función</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">expr</span></code></p></td>
+<td><p>Comando para evaluar una expresión de Bash.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">#!</span></code></p></td>
+<td><p>Shebang.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td><p>Operador de suma entre dos números.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+<td><p>Operador de división entera entre dos números. Devuelve el entero más cercano al resutado real.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+<td><p>Operador de resta entre dos números.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td><p>Operador de producto entre dos números. Hay que <strong>escapar el caracter <code class="docutils literal notranslate"><span class="pre">\*</span></code> <em>antes de usarlo en la shell</em></strong> como operador de producto o Bash creerá que será usado como expresión regular. Si se usa en <em>bc</em> no hay problema.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
+<td><p>Operador residuo entre dos números. Retorna el residuo de una división larga entre números.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bc</span></code></p></td>
+<td><p>Programa <em>bench calculator</em>. Toma strings de operaciones algebraicas y da el resultado.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">=</span></code></p></td>
+<td><p>Operador de asignación</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">$</span></code></p></td>
+<td><p>Caracter especial que revela contenido de una variable.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">let</span></code></p></td>
+<td><p>Comando que permite actualizar una variable con una operación algebraica.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">()</span></code></p></td>
+<td><p>Operador para <em>sustitución de comando</em>. Corre un comando y guarda el resultado en una variable.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;</span></code></p></td>
+<td><p>Variable nativa que imprime los nombres de los argumentos dados a un script.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
+<td><p>Variable nativa que guarda el primer argumento pasado al script.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+<td><p>Variable nativa que guarda el segundo argumento pasado al script.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">#</span></code></p></td>
+<td><p>Variable nativa que guarda el número de argumentos pasados al script.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">read</span></code></p></td>
+<td><p>Comando para guardar un input del usuario desde el teclado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><img width=100/></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contenido/09_Bash"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="0_Resumen.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title">Resumen</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="2_condicionales_arreglos.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Lógica, condicionales y arreglos</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por comunidad HerrCompBioinfo<br/>
+    
+        &copy; Derechos de autor 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
